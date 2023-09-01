@@ -8,30 +8,34 @@ const GameHandler = () => {
 
   useEffect(() => {
     GetPopularFilms(setData);
-  }, [])
+  }, []);
 
+  useEffect(() => {
+    gameLoop();
+  }, [data]);
 
   const gameLoop = () => {
     console.log(data.length);
-    console.log('count',count);
-    if (count < data.length -1) { 
+    if (count < data.length - 1) {
       setCount(count + 1);
       setDataToShow([]);
-      dataToShow.push(data[count].title, data[count + 1].title);
-      console.log(dataToShow);
+      setDataToShow([data[count].title, data[count + 1].title]);
+      console.log('dataToShow -->', dataToShow);
     }
     // faire un else apres avec redirection fin de game 
-  }
+  };
 
   return (
     <>
       <h1>win streak </h1>
       <div>{dataToShow && dataToShow.map((filmData) => {
         return (
-          <div key={filmData}>{filmData}</div>
+          <div key={filmData}>
+            <button onClick={gameLoop}>{filmData}</button>
+          </div>
         )
       })}</div> 
-      <button onClick={gameLoop}></button>
+
     </>
   )
 }
