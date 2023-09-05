@@ -1,11 +1,12 @@
 import { useState,useEffect,useRef } from 'react'
 import GetPopularFilms from '../../api_requests/GetPopularFilms';
 
+// let TURN = 0;
+
 const GameHandler = () => {
   const [gameData, setGameData] = useState([]);
   const [dataToShow, setDataToShow] = useState([]);
-  const turn = useRef(0);
-
+  const [turn, setTurn] = useState(0);
 
   useEffect(() => {
     GetPopularFilms(setGameData);
@@ -13,14 +14,17 @@ const GameHandler = () => {
 
   useEffect(() => {
     if (gameData.length !== 0 ) {
-      initQuestions();
+      //initQuestions();
+      setDataToShow([gameData[turn], gameData[turn+ 1]]);
     }
-  }, [gameData])
-  
+  }, [gameData, turn])
+
+  const shuffle = () => {
+    const arrayCopy = gameData.sort((a, b) => 0.5 - Math.random());
+    setGameData(arrayCopy);
+  }
   const isRightAnswer = (userChoice) => {
     let rightAnswer;
-    console.log('before crash', turn.current);
-    console.log(dataToShow);
     if (dataToShow[0].rate < dataToShow[1].rate) {
       rightAnswer = dataToShow[1].rate;
     } else {
@@ -34,19 +38,19 @@ const GameHandler = () => {
   }
 
   const initQuestions = () => {
-    console.log('turn --> ',turn.current);
-    setDataToShow([gameData[turn.current], gameData[turn.current+ 1]]);
-    turn.current += 1;
-
+    setDataToShow([gameData[TURN], gameData[TURN+ 1]]);
   }
   
   const gameLoop = (userChoice) => {
     const answer = isRightAnswer(userChoice);
     if (answer === true) {
-      initQuestions();
+      // initQuestions();
+      setTurn(turn + 1)
 
     } else {
-      console.log('perdu');
+      window.alert('perdu');
+      setTurn(0);
+      shuffle();
     }
     console.log(answer);
   }
