@@ -13,9 +13,10 @@ const GameHandler = () => {
   }, []);
 
   useEffect(() => {
-    if (gameData.length !== 0 ) {
-      //initQuestions();
+    if (gameData.length !== 0 && turn < gameData.length -1) {
       setDataToShow([gameData[turn], gameData[turn+ 1]]);
+    } else {
+      console.log('gagné');
     }
   }, [gameData, turn])
 
@@ -37,16 +38,10 @@ const GameHandler = () => {
     }
   }
 
-  const initQuestions = () => {
-    setDataToShow([gameData[TURN], gameData[TURN+ 1]]);
-  }
-  
   const gameLoop = (userChoice) => {
     const answer = isRightAnswer(userChoice);
     if (answer === true) {
-      // initQuestions();
       setTurn(turn + 1)
-
     } else {
       window.alert('perdu');
       setTurn(0);
