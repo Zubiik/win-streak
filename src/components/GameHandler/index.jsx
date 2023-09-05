@@ -13,11 +13,7 @@ const GameHandler = () => {
   useEffect(() => {
     if (gameData.length !== 0) {
       setQuestions([gameData[turn], gameData[turn+ 1]]);
-    } 
-   else if (turn === gameData.length -1) {
-     
-    } 
-    console.log(gameData.length -1,turn);
+    }
   }, [gameData, turn])
 
   const shuffle = () => {
