@@ -1,51 +1,62 @@
-import { useState,useEffect } from 'react'
+import { useState,useEffect,useRef } from 'react'
 import GetPopularFilms from '../../api_requests/GetPopularFilms';
 
 const GameHandler = () => {
-  const [data, setData] = useState([]);
-  const [count, setCount] = useState(0);
+  const [gameData, setGameData] = useState([]);
   const [dataToShow, setDataToShow] = useState([]);
+  const turn = useRef(0);
+
 
   useEffect(() => {
-    GetPopularFilms(setData);
+    GetPopularFilms(setGameData);
   }, []);
 
   useEffect(() => {
-    gameLoop();
-  }, [data]);
-
-  const winCount = (gamerResult, resultToCompare) => {
-    console.log('gamerResult ->',gamerResult,'resultToCompare ->', resultToCompare );
-    if (gamerResult > resultToCompare) {
-      console.log('gamerResult win ',gamerResult);
+    if (gameData.length !== 0 ) {
+      initQuestions();
+    }
+  }, [gameData])
+  
+  const isRightAnswer = (userChoice) => {
+    let rightAnswer;
+    console.log('before crash', turn.current);
+    console.log(dataToShow);
+    if (dataToShow[0].rate < dataToShow[1].rate) {
+      rightAnswer = dataToShow[1].rate;
     } else {
-      console.log('resultToCompare loose',resultToCompare);
-
+      rightAnswer = dataToShow[0].rate;
+    }
+    if (userChoice === rightAnswer ) {
+      return true;
+    } else {
+      return false;
     }
   }
-  const gameLoop = (rate) => {
-    
-    if (count < data.length - 1) {
-      console.log([data[count], data[count + 1]]);
-      if (rate) {
-        winCount(rate,data[count + 1].vote_average)
-      } 
-      setCount(count + 1);
-      setDataToShow([]);
-      setDataToShow([data[count], data[count + 1]]);
+
+  const initQuestions = () => {
+    console.log('turn --> ',turn.current);
+    setDataToShow([gameData[turn.current], gameData[turn.current+ 1]]);
+    turn.current += 1;
+
+  }
+  
+  const gameLoop = (userChoice) => {
+    const answer = isRightAnswer(userChoice);
+    if (answer === true) {
+      initQuestions();
+
+    } else {
+      console.log('perdu');
     }
-   
-    // faire un else apres avec redirection fin de game 
-  };
-
-
+    console.log(answer);
+  }
   return (
     <>
       <h1>win streak </h1>
       <div>{dataToShow && dataToShow.map((filmData) => {
         return (
           <div key={filmData.id}>
-            <button onClick={() => gameLoop(filmData.vote_average)}>{filmData.title} {filmData.vote_average}</button>
+            <button onClick={() => gameLoop(filmData.rate)}>{filmData.title} {filmData.rate}</button>
           </div>
         )
       })}

@@ -1,0 +1,23 @@
+const winCount = (gamerResult, resultToCompare) => {
+    console.log('gamerResult ->',gamerResult,'resultToCompare ->', resultToCompare );
+    if (gamerResult > resultToCompare) {
+      console.log('gamerResult win ',gamerResult);
+    } else {
+      console.log('resultToCompare loose',resultToCompare);
+      setCount(0);
+      //ici count ne se remet pas a 0 pb de maj d'etat
+    }
+  }
+
+  const gameLoop = (rate) => {
+    if (count < gameData.length - 1) {
+      if (rate) {
+        winCount(rate, gameData[count + 1].rate)
+      } 
+      setCount(count + 1);
+      //setDataToShow([]);///enlever
+      setDataToShow([gameData[count], gameData[count + 1]]);
+    }
+   
+    // faire un else apres avec redirection fin de game 
+  };

@@ -1,7 +1,6 @@
+import tmdbNormalizer from "../../utils/tmdbNormalizer";
 
-
-const GetPopularFilms = (setData) => {
-  const getFilms = () => {
+const GetPopularFilms = (setGameData) => {
     const options = {
       method: 'GET',
       headers: {
@@ -10,12 +9,13 @@ const GetPopularFilms = (setData) => {
       }
     };
     
-    fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1', options)
+     fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1', options)
       .then(response => response.json())
-      .then(response => setData(response.results) )
+       .then(response => {
+         const dataNormalized = tmdbNormalizer(response.results)
+         setGameData(dataNormalized)
+       })
       .catch(err => console.error(err));
-  }
-  getFilms();
 }
 
 export default GetPopularFilms;
