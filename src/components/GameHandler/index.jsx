@@ -62,7 +62,6 @@ const GameHandler = () => {
           </div>
         )
       })}
-        {/* <button onClick={gameLoop}></button> */}
       </div> 
 
     </>
