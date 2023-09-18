@@ -1,6 +1,7 @@
 import tmdbNormalizer from "../../utils/tmdbNormalizer";
 
 const GetPopularFilms = (setGameData) => {
+  const arrayCopy = [];
     const options = {
       method: 'GET',
       headers: {
@@ -8,14 +9,28 @@ const GetPopularFilms = (setGameData) => {
         Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwNDRiMmIyM2ZhNTRmYjQzYmQ0NTIxOTE2YTcxNThhYiIsInN1YiI6IjYxNGIyNzRjZDJjMGMxMDA2NjgyNTI1MSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Dy5eDenJJ2jmf5HZqrPpU2ylem0y6Knp2droz_djut0'
       }
     };
-    
-     fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1', options)
-      .then(response => response.json())
+    // for (let index = 0; index < 3; index++) {
+    //   fetch('https://api.themoviedb.org/3/movie/popular?page='+ index, options)
+    //   .then(response => response.json())
+    //   .then(response => arrayCopy.push(...response.results))
+    //   .catch(err => console.error(err));
+
+    // }
+    fetch('https://api.themoviedb.org/3/movie/popular?page=1', options)
+    .then(response => response.json())
+    .then(response => arrayCopy.push(...response.results))
+    .catch(err => console.error(err));
+
+     fetch('https://api.themoviedb.org/3/movie/popular?page=2', options)
+       .then(response => response.json())
+       .then(response => arrayCopy.push(...response.results))
+       .then(console.log(arrayCopy))
        .then(response => {
-         const dataNormalized = tmdbNormalizer(response.results)
+         const dataNormalized = tmdbNormalizer(arrayCopy)
          setGameData(dataNormalized)
        })
-      .catch(err => console.error(err));
+       .catch(err => console.error(err));
+       console.log(arrayCopy);
 }
 
 export default GetPopularFilms;

@@ -1,5 +1,6 @@
 import { useState,useEffect,useRef } from 'react'
 import GetPopularFilms from '../../api_requests/GetPopularFilms';
+import GetPopularSeries from '../../api_requests/GetPopularSeries'
 
 const GameHandler = () => {
   const [gameData, setGameData] = useState([]);
@@ -8,46 +9,39 @@ const GameHandler = () => {
 
   useEffect(() => {
     GetPopularFilms(setGameData);
+   // console.log(GetPopularSeries(setGameData));
   }, []);
+  console.log(gameData);
 
   useEffect(() => {
     if (gameData.length !== 0) {
-      setQuestions([gameData[turn], gameData[turn+ 1]]);
+      setQuestions([gameData[turn], gameData[turn + 1]]);
     }
   }, [gameData, turn])
 
   const shuffle = () => {
-    const randomNumber = Math.random();
-    const roundedNumber = Math.floor(randomNumber * 10);
-    const roundedToDecimal = roundedNumber / 10;
-    const arrayCopy = gameData.sort((a, b) => roundedToDecimal - Math.random());
+    const arrayCopy = gameData.sort((a, b) => Math.random() - Math.random());
     setGameData(arrayCopy);
   }
   const isRightAnswer = (userChoice) => {
-    let rightAnswer;
-    if (questions[0].rate < questions[1].rate) {
-      rightAnswer = questions[1].rate;
-    } else {
-      rightAnswer = questions[0].rate;
-    }
-    if (userChoice === rightAnswer ) {
+    if (((questions[0].rate < questions[1].rate) && (userChoice === questions[1].rate))
+      || ((questions[0].rate > questions[1].rate) && (userChoice === questions[0].rate))) {
       return true;
-    } else {
-      return false;
     }
+    return false;
   }
 
   const gameLoop = (userChoice) => {
     const answer = isRightAnswer(userChoice);
-    if (answer === true) {
+    if (answer) {
       setTurn(turn + 1)
-    } else if (turn === gameData.length -1) {
-      console.log('wiiiin');
-    } 
+    }
     else {
       window.alert('perdu');
+      //set questions est trigger 2 fois
       setTurn(0);
-      shuffle();    }
+      shuffle();
+    }
   }
   return (
     <>
