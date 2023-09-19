@@ -1,6 +1,7 @@
 import { useState,useEffect,useRef } from 'react'
 import GetPopularFilms from '../../api_requests/GetPopularFilms';
-import GetPopularSeries from '../../api_requests/GetPopularSeries'
+import GetPopularSeries from '../../api_requests/GetPopularSeries';
+import GetArtists from '../../api_requests/GETartists';
 
 const GameHandler = () => {
   const [gameData, setGameData] = useState([]);
@@ -10,6 +11,7 @@ const GameHandler = () => {
   useEffect(() => {
     GetPopularFilms(setGameData);
    // console.log(GetPopularSeries(setGameData));
+    GetArtists();
   }, []);
   console.log(gameData);
 
@@ -52,7 +54,7 @@ const GameHandler = () => {
           : questions && questions.map((filmData) => {
         return (
           <div key={filmData.id}>
-            <button onClick={() => gameLoop(filmData.rate)}>{filmData.title} {filmData.rate}</button>
+            <button onClick={() => gameLoop(filmData.rate)}>{filmData.title} // {filmData.rate}</button>
           </div>
         )
       })}
@@ -63,3 +65,4 @@ const GameHandler = () => {
 }
 
 export default GameHandler;
+
