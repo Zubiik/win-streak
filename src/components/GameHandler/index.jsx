@@ -11,7 +11,7 @@ const GameHandler = () => {
   useEffect(() => {
     GetPopularFilms(setGameData);
    // console.log(GetPopularSeries(setGameData));
-    GetArtists();
+    GetArtists(setGameData);
   }, []);
   console.log(gameData);
 
@@ -51,10 +51,10 @@ const GameHandler = () => {
       <div>
         {
           turn === gameData.length - 1 ? <> <h2>hello winner</h2><img src='../../winner.png'/></>
-          : questions && questions.map((filmData) => {
+          : questions && questions.map((artistData) => {
         return (
-          <div key={filmData.id}>
-            <button onClick={() => gameLoop(filmData.rate)}>{filmData.title} // {filmData.rate}</button>
+          <div key={artistData.name}>
+            <button onClick={() => gameLoop(artistData.rate)}>{artistData.name} // {artistData.rate}</button>
           </div>
         )
       })}
