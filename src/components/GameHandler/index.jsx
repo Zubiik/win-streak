@@ -48,7 +48,6 @@ const GameHandler = () => {
         {
           turn === gameData.length - 1 ? <> <h2>hello winner</h2><img src='../../winner.png'/></>
             : questions && questions.map((artistData) => {
-            console.log('artistData',artistData);
         return (
           <div key={artistData.name}>
             <button onClick={() => gameLoop(artistData.followers.total)}>{artistData.name} // {artistData.followers.total}</button>
