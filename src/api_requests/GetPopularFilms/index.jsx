@@ -24,13 +24,11 @@ const GetPopularFilms = (setGameData) => {
      fetch('https://api.themoviedb.org/3/movie/popular?page=2', options)
        .then(response => response.json())
        .then(response => arrayCopy.push(...response.results))
-       .then(console.log(arrayCopy))
        .then(response => {
          const dataNormalized = tmdbNormalizer(arrayCopy)
          setGameData(dataNormalized)
        })
        .catch(err => console.error(err));
-       console.log(arrayCopy);
 }
 
 export default GetPopularFilms;

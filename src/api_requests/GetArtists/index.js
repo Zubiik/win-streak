@@ -6,12 +6,13 @@ const GetArtists = (setGameData) => {
       method: 'GET',
       headers: {
         accept: 'application/json',
-        Authorization: 'Bearer BQDYa1EsMzg_h_m4SEcjmHopqJIDvY80TjoD7XTq2H2CyL6zOCkHo_j9AMZu_KN2BYKS9_dJwXnqI-6L4EQy9KXMQvhqxS1Mqn5ZPS89sNp2U290DZU'
+        Authorization: 'Bearer BQDs2kTA1XKg_EuElQIROsXlUc90_FMFGNi82ULr40zpCAkzFAFIkoHBpXNS8ssn7tLhf-5QoY6uaOwy6p70rTlTOtPqzT2Hqey8_p7-iiHFwY7QPoc'
       }
     };
    
      fetch('https://api.spotify.com/v1/artists?ids='+ idsList, options)
        .then(response => response.json())
+       .then(response => console.log(response))
        .then(response => {
         const dataNormalized = spotifyNormalizer(response.artists)
         setGameData(dataNormalized)

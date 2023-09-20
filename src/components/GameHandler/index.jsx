@@ -1,19 +1,13 @@
 import { useState,useEffect,useRef } from 'react'
-import GetPopularFilms from '../../api_requests/GetPopularFilms';
-import GetPopularSeries from '../../api_requests/GetPopularSeries';
-import GetArtists from '../../api_requests/GETartists';
-
+import { artistsData } from '../../mocked__data/artistsData';
 const GameHandler = () => {
   const [gameData, setGameData] = useState([]);
   const [questions, setQuestions] = useState([]);
   const [turn, setTurn] = useState(0);
 
   useEffect(() => {
-    GetPopularFilms(setGameData);
-   // console.log(GetPopularSeries(setGameData));
-    GetArtists(setGameData);
+    setGameData(artistsData);
   }, []);
-  console.log(gameData);
 
   useEffect(() => {
     if (gameData.length !== 0) {
@@ -26,8 +20,8 @@ const GameHandler = () => {
     setGameData(arrayCopy);
   }
   const isRightAnswer = (userChoice) => {
-    if (((questions[0].rate < questions[1].rate) && (userChoice === questions[1].rate))
-      || ((questions[0].rate > questions[1].rate) && (userChoice === questions[0].rate))) {
+    if (((questions[0].followers.total < questions[1].followers.total) && (userChoice === questions[1].followers.total))
+      || ((questions[0].followers.total > questions[1].followers.total) && (userChoice === questions[0].followers.total))) {
       return true;
     }
     return false;
@@ -45,16 +39,19 @@ const GameHandler = () => {
       shuffle();
     }
   }
+
   return (
     <>
       <h1>win streak </h1>
+      <h2>Quel est l'artiste le plus ecouté ?</h2>
       <div>
         {
           turn === gameData.length - 1 ? <> <h2>hello winner</h2><img src='../../winner.png'/></>
-          : questions && questions.map((artistData) => {
+            : questions && questions.map((artistData) => {
+            console.log('artistData',artistData);
         return (
           <div key={artistData.name}>
-            <button onClick={() => gameLoop(artistData.rate)}>{artistData.name} // {artistData.rate}</button>
+            <button onClick={() => gameLoop(artistData.followers.total)}>{artistData.name} // {artistData.followers.total}</button>
           </div>
         )
       })}
