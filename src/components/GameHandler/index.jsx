@@ -1,13 +1,12 @@
 import { useState,useEffect,useRef } from 'react'
 import { artistsData } from '../../mocked__data/artistsData';
-const GameHandler = () => {
-  const [gameData, setGameData] = useState([]);
+const GameHandler = ({setIsTrue,gameData, setGameData}) => {
   const [questions, setQuestions] = useState([]);
   const [turn, setTurn] = useState(0);
 
-  useEffect(() => {
-    setGameData(artistsData);
-  }, []);
+  // useEffect(() => {
+  //   setGameData(artistsData);
+  // }, []);
 
   useEffect(() => {
     if (gameData.length !== 0) {
@@ -42,6 +41,7 @@ const GameHandler = () => {
 
   return (
     <>
+      <p onClick={() => setIsTrue(false)}>Retour</p>
       <h1>win streak </h1>
       <h2>Quel est l'artiste le plus ecouté ?</h2>
       <div>
