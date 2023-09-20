@@ -1,11 +1,11 @@
-import {ImgContainer, GameTitle, GameSelector} from "./styled.js";
+import {ImgContainer, GameTitle, GameSelector,Container} from "./styled.js";
 const ChooseGame = () => {
   return (
-    <div>
-      <h1>Ici on choisit le jeu </h1>
-      <h2>reussir a faire plein de trucs</h2>
+    <Container>
+      <h1>A vous de jouer </h1>
+      <h2>Reussissez à faire un sans faute !</h2>
       <GameSelector>
-        <ImgContainer>
+        <ImgContainer onClick={() => console.log('ici passer a true ')}>
           <GameTitle>
           l'artiste le plus ecouté
           </GameTitle>
@@ -21,7 +21,7 @@ const ChooseGame = () => {
           </GameTitle> 
         </ImgContainer>
       </GameSelector>
-    </div>
+    </Container>
   )
 }
 

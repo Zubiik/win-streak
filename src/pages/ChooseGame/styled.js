@@ -1,9 +1,16 @@
 import styled from "@emotion/styled";
 
+export const Container = styled.div`
+  height: 100vh;
+  /* background-image: url("../../wallpaper.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; */
+`;
+
 export const GameSelector = styled.div`
 display: flex;
 justify-content: space-around;
-border: 1px solid pink;
 `;
 
 export const ImgContainer = styled.div`
@@ -11,12 +18,13 @@ export const ImgContainer = styled.div`
   align-items: flex-end;
   justify-content: flex-start;
   border-radius: 1.5rem;
-  width : 20rem;
-  min-height : 30rem;
+  width : 16rem;
+  min-height : 25rem;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   background-image: url("../../base.jpg");
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 `;
 // export const ImgCustom = styled.img`
 //  max-width:100%;
@@ -25,6 +33,6 @@ export const ImgContainer = styled.div`
 export const GameTitle = styled.h3`
   color: white;
   font-weight: bold;
-  margin: 3rem;
-  border:1px blue solid;
+  margin:2rem;
+  margin-right: 1rem;
 `;
