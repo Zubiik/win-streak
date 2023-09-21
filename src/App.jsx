@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import GameHandler from './components/GameHandler';
-import ChooseGame from './pages/ChooseGame';
+import HomePage from './pages/HomePage';
 
 const App = () => {
   const [gameData, setGameData] = useState([]);
@@ -11,7 +11,7 @@ const App = () => {
   return (
     <>
       {isTrue ? <GameHandler setIsTrue={setIsTrue} gameData={gameData} setGameData={setGameData}/> :
-      <ChooseGame setIsTrue={setIsTrue} setGameData={setGameData}/>
+      <HomePage setIsTrue={setIsTrue} setGameData={setGameData}/>
       }
     </>
   )

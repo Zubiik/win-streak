@@ -1,12 +1,10 @@
-import { useState,useEffect,useRef } from 'react'
-import { artistsData } from '../../mocked__data/artistsData';
+import { useState, useEffect } from 'react';
+import { QuestionCustom, Container, QuestionsContainer, ResponseCustom, SectionContainer,Circle } from './styled';
+
 const GameHandler = ({setIsTrue,gameData, setGameData}) => {
   const [questions, setQuestions] = useState([]);
   const [turn, setTurn] = useState(0);
-
-  // useEffect(() => {
-  //   setGameData(artistsData);
-  // }, []);
+  const [rightAnswer, setRightAnswer] = useState(false);
 
   useEffect(() => {
     if (gameData.length !== 0) {
@@ -27,36 +25,42 @@ const GameHandler = ({setIsTrue,gameData, setGameData}) => {
   }
 
   const gameLoop = (userChoice) => {
-    const answer = isRightAnswer(userChoice);
-    if (answer) {
+    setRightAnswer(true);
+    setTimeout(function(){
+      const answer = isRightAnswer(userChoice);
+      if (answer) {
       setTurn(turn + 1)
-    }
-    else {
-      window.alert('perdu');
-      //set questions est trigger 2 fois
-      setTurn(0);
-      shuffle();
-    }
+      }
+      else {
+        window.alert('perdu');
+        //set questions est trigger 2 fois
+        setTurn(0);
+        shuffle();
+      }
+      setRightAnswer(false);
+  }, 1000);
   }
 
   return (
-    <>
+    <Container>
       <p onClick={() => setIsTrue(false)}>Retour</p>
-      <h1>win streak </h1>
-      <h2>Quel est l'artiste le plus ecouté ?</h2>
-      <div>
+      <h2>Quel est l'artiste le plus ecouté du mois ?</h2>
+      <SectionContainer>
         {
           turn === gameData.length - 1 ? <> <h2>hello winner</h2><img src='../../winner.png'/></>
             : questions && questions.map((artistData) => {
+              console.log(artistData.images[2].url);
         return (
-          <div key={artistData.name}>
-            <button onClick={() => gameLoop(artistData.followers.total)}>{artistData.name} // {artistData.followers.total}</button>
-          </div>
-        )
-      })}
-      </div> 
+          <QuestionsContainer key={artistData.name}>
+            <Circle src={artistData.images[0].url} />
+            <QuestionCustom onClick={() => gameLoop(artistData.followers.total)}>{artistData.name} </QuestionCustom>
+            {rightAnswer && <ResponseCustom>{artistData.followers.total}</ResponseCustom>}
+          </QuestionsContainer>
+          )
+        })}
+      </SectionContainer> 
 
-    </>
+    </Container>
   )
 }
 

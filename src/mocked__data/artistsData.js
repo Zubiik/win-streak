@@ -74,78 +74,78 @@ export const artistsData = [
           "type": "artist",
           "uri": "spotify:artist:1uNFoZAHBGtllmzznpCI3s"
       },
-//       {
-//           "external_urls": {
-//               "spotify": "https://open.spotify.com/artist/04gDigrS5kc9YWfZHwBETP"
-//           },
-//           "followers": {
-//               "href": null,
-//               "total": 41552870
-//           },
-//           "genres": [
-//               "pop"
-//           ],
-//           "href": "https://api.spotify.com/v1/artists/04gDigrS5kc9YWfZHwBETP",
-//           "id": "04gDigrS5kc9YWfZHwBETP",
-//           "images": [
-//               {
-//                   "height": 640,
-//                   "url": "https://i.scdn.co/image/ab6761610000e5ebf8349dfb619a7f842242de77",
-//                   "width": 640
-//               },
-//               {
-//                   "height": 320,
-//                   "url": "https://i.scdn.co/image/ab67616100005174f8349dfb619a7f842242de77",
-//                   "width": 320
-//               },
-//               {
-//                   "height": 160,
-//                   "url": "https://i.scdn.co/image/ab6761610000f178f8349dfb619a7f842242de77",
-//                   "width": 160
-//               }
-//           ],
-//           "name": "Maroon 5",
-//           "popularity": 83,
-//           "type": "artist",
-//           "uri": "spotify:artist:04gDigrS5kc9YWfZHwBETP"
-//       },
-// {
-//   "external_urls": {
-//     "spotify": "https://open.spotify.com/artist/5pKCCKE2ajJHZ9KAiaK11H"
-//   },
-//   "followers": {
-//     "href": null,
-//     "total": 57937555
-//   },
-//   "genres": [
-//     "barbadian pop",
-//     "pop",
-//     "urban contemporary"
-//   ],
-//   "href": "https://api.spotify.com/v1/artists/5pKCCKE2ajJHZ9KAiaK11H",
-//   "id": "5pKCCKE2ajJHZ9KAiaK11H",
-//   "images": [
-//     {
-//       "height": 640,
-//       "url": "https://i.scdn.co/image/ab6761610000e5eb99e4fca7c0b7cb166d915789",
-//       "width": 640
-//     },
-//     {
-//       "height": 320,
-//       "url": "https://i.scdn.co/image/ab6761610000517499e4fca7c0b7cb166d915789",
-//       "width": 320
-//     },
-//     {
-//       "height": 160,
-//       "url": "https://i.scdn.co/image/ab6761610000f17899e4fca7c0b7cb166d915789",
-//       "width": 160
-//     }
-//   ],
-//   "name": "Rihanna",
-//   "popularity": 88,
-//   "type": "artist",
-//   "uri": "spotify:artist:5pKCCKE2ajJHZ9KAiaK11H"
-// },
+      {
+          "external_urls": {
+              "spotify": "https://open.spotify.com/artist/04gDigrS5kc9YWfZHwBETP"
+          },
+          "followers": {
+              "href": null,
+              "total": 41552870
+          },
+          "genres": [
+              "pop"
+          ],
+          "href": "https://api.spotify.com/v1/artists/04gDigrS5kc9YWfZHwBETP",
+          "id": "04gDigrS5kc9YWfZHwBETP",
+          "images": [
+              {
+                  "height": 640,
+                  "url": "https://i.scdn.co/image/ab6761610000e5ebf8349dfb619a7f842242de77",
+                  "width": 640
+              },
+              {
+                  "height": 320,
+                  "url": "https://i.scdn.co/image/ab67616100005174f8349dfb619a7f842242de77",
+                  "width": 320
+              },
+              {
+                  "height": 160,
+                  "url": "https://i.scdn.co/image/ab6761610000f178f8349dfb619a7f842242de77",
+                  "width": 160
+              }
+          ],
+          "name": "Maroon 5",
+          "popularity": 83,
+          "type": "artist",
+          "uri": "spotify:artist:04gDigrS5kc9YWfZHwBETP"
+      },
+{
+  "external_urls": {
+    "spotify": "https://open.spotify.com/artist/5pKCCKE2ajJHZ9KAiaK11H"
+  },
+  "followers": {
+    "href": null,
+    "total": 57937555
+  },
+  "genres": [
+    "barbadian pop",
+    "pop",
+    "urban contemporary"
+  ],
+  "href": "https://api.spotify.com/v1/artists/5pKCCKE2ajJHZ9KAiaK11H",
+  "id": "5pKCCKE2ajJHZ9KAiaK11H",
+  "images": [
+    {
+      "height": 640,
+      "url": "https://i.scdn.co/image/ab6761610000e5eb99e4fca7c0b7cb166d915789",
+      "width": 640
+    },
+    {
+      "height": 320,
+      "url": "https://i.scdn.co/image/ab6761610000517499e4fca7c0b7cb166d915789",
+      "width": 320
+    },
+    {
+      "height": 160,
+      "url": "https://i.scdn.co/image/ab6761610000f17899e4fca7c0b7cb166d915789",
+      "width": 160
+    }
+  ],
+  "name": "Rihanna",
+  "popularity": 88,
+  "type": "artist",
+  "uri": "spotify:artist:5pKCCKE2ajJHZ9KAiaK11H"
+},
 // {
 //   "external_urls": {
 //     "spotify": "https://open.spotify.com/artist/7n2wHs1TKAczGzO7Dd2rGr"

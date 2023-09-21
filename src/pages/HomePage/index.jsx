@@ -1,6 +1,6 @@
 import { ImgContainer, GameTitle, GameSelector, Container } from "./styled.js";
-import { artistsData } from '../../mocked__data/artistsData';
-const ChooseGame = ({setIsTrue,setGameData}) => {
+import { artistsData } from '../../mocked__data/artistsData.js';
+const HomePage = ({setIsTrue,setGameData}) => {
   return (
     <Container>
       <h1>A vous de jouer </h1>
@@ -8,7 +8,7 @@ const ChooseGame = ({setIsTrue,setGameData}) => {
       <GameSelector>
         <ImgContainer onClick={() => { setIsTrue(true); setGameData(artistsData) }}>
           <GameTitle>
-          l'artiste le plus ecouté
+            l'artiste le plus ecouté
           </GameTitle>
         </ImgContainer>
         <ImgContainer>
@@ -18,7 +18,7 @@ const ChooseGame = ({setIsTrue,setGameData}) => {
         </ImgContainer>
         <ImgContainer>
           <GameTitle> 
-          le meilleur fromage
+            le meilleur fromage
           </GameTitle> 
         </ImgContainer>
       </GameSelector>
@@ -26,4 +26,4 @@ const ChooseGame = ({setIsTrue,setGameData}) => {
   )
 }
 
-export default ChooseGame;
+export default HomePage;
