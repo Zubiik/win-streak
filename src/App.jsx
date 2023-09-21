@@ -6,7 +6,6 @@ import HomePage from './pages/HomePage';
 const App = () => {
   const [gameData, setGameData] = useState([]);
   const [isTrue, setIsTrue] = useState(false);
-  console.log(isTrue);
 
   return (
     <>

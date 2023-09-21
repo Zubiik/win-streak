@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import { QuestionCustom, Container, QuestionsContainer, ResponseCustom, SectionContainer,Circle } from './styled';
+import { QuestionCustom, Container, QuestionsContainer, ResponseCustom, SectionContainer, Circle, Title } from './styled';
+import SvgComponent from '../Arrow';
 
 const GameHandler = ({setIsTrue,gameData, setGameData}) => {
   const [questions, setQuestions] = useState([]);
@@ -43,13 +44,12 @@ const GameHandler = ({setIsTrue,gameData, setGameData}) => {
 
   return (
     <Container>
-      <p onClick={() => setIsTrue(false)}>Retour</p>
-      <h2>Quel est l'artiste le plus ecouté du mois ?</h2>
+      <SvgComponent onClick={() => setIsTrue(false)}/>
+      <Title>Quel est l'artiste le plus ecouté du mois ?</Title>
       <SectionContainer>
         {
           turn === gameData.length - 1 ? <> <h2>hello winner</h2><img src='../../winner.png'/></>
             : questions && questions.map((artistData) => {
-              console.log(artistData.images[2].url);
         return (
           <QuestionsContainer key={artistData.name}>
             <Circle src={artistData.images[0].url} />
