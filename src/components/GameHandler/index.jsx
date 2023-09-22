@@ -8,8 +8,6 @@ const GameHandler = ({ setIsTrue, gameData, setGameData,gameTheme }) => {
   const [score, setScore] = useState(0);
   const [rightAnswer, setRightAnswer] = useState(false);
   let userScore = localStorage.getItem("userScore");
-  console.log(gameTheme);
-
   const shuffle = () => {
     const arrayCopy = gameData.sort((a, b) => Math.random() - Math.random());
     setGameData(arrayCopy);
@@ -68,7 +66,7 @@ const GameHandler = ({ setIsTrue, gameData, setGameData,gameTheme }) => {
           <QuestionsContainer key={gameInfo.id}>
             <Circle src={gameInfo.url} />
             <QuestionCustom onClick={() => gameLoop(gameInfo.rate)}>{gameInfo.title} </QuestionCustom>
-            {rightAnswer && <ResponseCustom>{gameInfo.rate}</ResponseCustom>}
+            {rightAnswer && <ResponseCustom>{gameInfo.rate.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</ResponseCustom>}
           </QuestionsContainer>
           )
         })}
