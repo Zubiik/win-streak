@@ -1,17 +1,20 @@
 import { ImgContainer, GameTitle, GameSelector, Container } from "./styled.js";
 import { artistsData } from '../../mocked__data/artistsData.js';
-const HomePage = ({setIsTrue,setGameData}) => {
+import { filmsData } from '../../mocked__data/filmsData.js';
+
+const HomePage = ({ setIsTrue, setGameData,setGameTheme }) => {
+ 
   return (
     <Container>
       <h1>A vous de jouer </h1>
       <h2>Reussissez à faire un sans faute !</h2>
       <GameSelector>
-        <ImgContainer onClick={() => { setIsTrue(true); setGameData(artistsData) }}>
+        <ImgContainer onClick={() => { setIsTrue(true); setGameData(artistsData); setGameTheme('l\'artiste le plus ecouté')}}>
           <GameTitle>
             l'artiste le plus ecouté
           </GameTitle>
         </ImgContainer>
-        <ImgContainer>
+        <ImgContainer onClick={() => { setIsTrue(true); setGameData(filmsData); setGameTheme('le film le mieux noté')}}>
           <GameTitle>
             le film le mieux noté
           </GameTitle>

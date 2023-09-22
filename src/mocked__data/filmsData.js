@@ -6,7 +6,7 @@ export const filmsData = [
     "popularity": 95.013,
     "poster_path": "/3bhkrj58Vtu7enYsRolD1fZdja1.jpg",
     "release_date": "1972-03-14",
-    "title": "The Godfather",
+    "title": "Le Parrain",
     "rate": 8.7,
     "vote_count": 18651
   },
@@ -17,7 +17,7 @@ export const filmsData = [
     "popularity": 90.97,
     "poster_path": "/lyQBXzOQSuE59IsHyhrp0qIiPAz.jpg",
     "release_date": "1994-09-23",
-    "title": "The Shawshank Redemption",
+    "title": "Les Évadés",
     "rate": 8.6,
     "vote_count": 24618
   },
@@ -436,7 +436,7 @@ export const filmsData = [
         "poster_path": "/6YmqltcocUd35cvira6OzxQsoXW.jpg",
         "release_date": "2023-05-19",
         "title": "Skinford: Death Sentence",
-        "vote_average": 4.7,
+        "rate": 4.7,
         "vote_count": 3
       },
       {
@@ -448,7 +448,7 @@ export const filmsData = [
         "poster_path": "/n0GXumEMtwgYj2M3YW4Iu0veYJg.jpg",
         "release_date": "2023-08-10",
         "title": "Jagun Jagun",
-        "vote_average": 6.5,
+        "rate": 6.5,
         "vote_count": 43
       },
       {
@@ -460,7 +460,7 @@ export const filmsData = [
         "poster_path": "/xbSuFiJbbBWCkyCCKIMfuDCA4yV.jpg",
         "release_date": "2021-05-25",
         "title": "The Conjuring: The Devil Made Me Do It",
-        "vote_average": 7.5,
+        "rate": 7.5,
         "vote_count": 5388
       },
       {
@@ -472,7 +472,7 @@ export const filmsData = [
         "poster_path": "/fjTI6czy62GCsoI7G7fKghSrH2x.jpg",
         "release_date": "2023-09-14",
         "title": "Perpetrator",
-        "vote_average": 3.9,
+        "rate": 3.9,
         "vote_count": 11
       },
       {
@@ -484,7 +484,7 @@ export const filmsData = [
         "poster_path": "/mv362kHXz4Yr33wtQhqfcJWFM8G.jpg",
         "release_date": "2023-05-11",
         "title": "Hypnotic",
-        "vote_average": 6.5,
+        "rate": 6.5,
         "vote_count": 557
       },
       {
@@ -496,7 +496,7 @@ export const filmsData = [
         "poster_path": "/A7Ii0tOvY77pSUTH2PaLeRk5eHW.jpg",
         "release_date": "2023-04-21",
         "title": "Keramat Tunggak",
-        "vote_average": 10,
+        "rate": 10,
         "vote_count": 1
       },
       {
@@ -508,7 +508,7 @@ export const filmsData = [
         "poster_path": "/kVG8zFFYrpyYLoHChuEeOGAd6Ru.jpg",
         "release_date": "2023-04-19",
         "title": "Guy Ritchie's The Covenant",
-        "vote_average": 7.8,
+        "rate": 7.8,
         "vote_count": 1604
       },
       {
@@ -520,7 +520,7 @@ export const filmsData = [
         "poster_path": "/l1f9JSPjCfNftigEii1SDK1g2b3.jpg",
         "release_date": "2023-08-02",
         "title": "Soulcatcher",
-        "vote_average": 6.5,
+        "rate": 6.5,
         "vote_count": 183
       },
       {
@@ -532,7 +532,7 @@ export const filmsData = [
         "poster_path": "/ozC9UaKaS0MXjMbCAHZJikszwV6.jpg",
         "release_date": "2023-07-20",
         "title": "Sympathy for the Devil",
-        "vote_average": 6.3,
+        "rate": 6.3,
         "vote_count": 87
       },
       {
@@ -544,7 +544,7 @@ export const filmsData = [
         "poster_path": "/jFC4LS5qTAT3PinzdEzINfu1CV9.jpg",
         "release_date": "2023-04-05",
         "title": "The Pope's Exorcist",
-        "vote_average": 7.2,
+        "rate": 7.2,
         "vote_count": 1931
       },
       {
@@ -556,7 +556,7 @@ export const filmsData = [
         "poster_path": "/2bDojliSLzGFwxlqQZodJAXHy7H.jpg",
         "release_date": "2005-11-03",
         "title": "The Nun",
-        "vote_average": 5.5,
+        "rate": 5.5,
         "vote_count": 212
       },
       {
@@ -568,7 +568,7 @@ export const filmsData = [
         "poster_path": "/cQvc9N6JiMVKqol3wcYrGshsIdZ.jpg",
         "release_date": "2018-07-19",
         "title": "The Equalizer 2",
-        "vote_average": 6.7,
+        "rate": 6.7,
         "vote_count": 4630
       },
       {
@@ -580,7 +580,7 @@ export const filmsData = [
         "poster_path": "/2Gfjn962aaFSD6eST6QU3oLDZTo.jpg",
         "release_date": "2015-05-27",
         "title": "San Andreas",
-        "vote_average": 6.2,
+        "rate": 6.2,
         "vote_count": 8020
       },
       {
@@ -592,7 +592,7 @@ export const filmsData = [
         "poster_path": "/7gKI9hpEMcZUQpNgKrkDzJpbnNS.jpg",
         "release_date": "2023-06-09",
         "title": "Extraction 2",
-        "vote_average": 7.5,
+        "rate": 7.5,
         "vote_count": 1787
       },
       {
@@ -604,7 +604,7 @@ export const filmsData = [
         "poster_path": "/5weKu49pzJCt06OPpjvT80efnQj.jpg",
         "release_date": "2021-12-15",
         "title": "Spider-Man: No Way Home",
-        "vote_average": 8,
+        "rate": 8,
         "vote_count": 18260
       },
       {
@@ -616,7 +616,7 @@ export const filmsData = [
         "poster_path": "/516MFML05KWiPfiQNAsVCGMySc7.jpg",
         "release_date": "2023-08-08",
         "title": "The Seven Deadly Sins: Grudge of Edinburgh Part 2",
-        "vote_average": 7.5,
+        "rate": 7.5,
         "vote_count": 83
       },
       {
@@ -628,7 +628,7 @@ export const filmsData = [
         "poster_path": "/xjZjNaUVF9mX7ekOL3lvBUi72eQ.jpg",
         "release_date": "2023-02-17",
         "title": "Sasaki and Miyano: Graduation",
-        "vote_average": 6.3,
+        "rate": 6.3,
         "vote_count": 15
       }
 ];

@@ -6,11 +6,12 @@ import HomePage from './pages/HomePage';
 const App = () => {
   const [gameData, setGameData] = useState([]);
   const [isTrue, setIsTrue] = useState(false);
-
+  const [gameTheme, setGameTheme] = useState();
+  
   return (
     <>
-      {isTrue ? <GameHandler setIsTrue={setIsTrue} gameData={gameData} setGameData={setGameData}/> :
-      <HomePage setIsTrue={setIsTrue} setGameData={setGameData}/>
+      {isTrue ? <GameHandler setIsTrue={setIsTrue} gameData={gameData} setGameData={setGameData} gameTheme={gameTheme} /> :
+        <HomePage setIsTrue={setIsTrue} setGameData={setGameData} setGameTheme={setGameTheme} />
       }
     </>
   )

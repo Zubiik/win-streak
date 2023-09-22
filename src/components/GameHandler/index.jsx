@@ -2,26 +2,29 @@ import { useState, useEffect } from 'react';
 import { QuestionCustom, Container, QuestionsContainer, ResponseCustom, SectionContainer, Circle, Title } from './styled';
 import SvgComponent from '../Arrow';
 
-const GameHandler = ({setIsTrue,gameData, setGameData}) => {
+const GameHandler = ({ setIsTrue, gameData, setGameData,gameTheme }) => {
   const [questions, setQuestions] = useState([]);
   const [turn, setTurn] = useState(0);
   const [score, setScore] = useState(0);
   const [rightAnswer, setRightAnswer] = useState(false);
   let userScore = localStorage.getItem("userScore");
-
-  useEffect(() => {
-    if (gameData.length !== 0) {
-      setQuestions([gameData[turn], gameData[turn + 1]]);
-    }
-  }, [gameData, turn])
+  console.log(gameTheme);
 
   const shuffle = () => {
     const arrayCopy = gameData.sort((a, b) => Math.random() - Math.random());
     setGameData(arrayCopy);
   }
+
+  useEffect(() => {
+    if (gameData.length !== 0) {
+      shuffle();
+      setQuestions([gameData[turn], gameData[turn + 1]]);
+    }
+  }, [gameData, turn])
+
   const isRightAnswer = (userChoice) => {
-    if (((questions[0].followers.total < questions[1].followers.total) && (userChoice === questions[1].followers.total))
-      || ((questions[0].followers.total > questions[1].followers.total) && (userChoice === questions[0].followers.total))) {
+    if (((questions[0].rate < questions[1].rate) && (userChoice === questions[1].rate))
+      || ((questions[0].rate > questions[1].rate) && (userChoice === questions[0].rate)) || (questions[0].rate === questions[1].rate)) {
       setScore(score + 1);
       return true;
     }
@@ -39,18 +42,19 @@ const GameHandler = ({setIsTrue,gameData, setGameData}) => {
         window.alert('perdu');
         //set questions est trigger 2 fois
         setScore(0);
-        localStorage.setItem("userScore", score);
+        if (score > userScore) {
+          localStorage.setItem("userScore", score);
+        }
         setTurn(0);
         shuffle();
       }
       setRightAnswer(false);
   }, 1000);
   }
-
-  return (
+   return (
     <Container>
       <SvgComponent onClick={() => setIsTrue(false)}/>
-      <Title>Quel est l'artiste le plus ecouté du mois ?</Title>
+      <Title>{gameTheme}</Title>
       <p>score: {score} </p>
       <p>record:{userScore} </p>
       <SectionContainer>
@@ -59,12 +63,12 @@ const GameHandler = ({setIsTrue,gameData, setGameData}) => {
             <>
               <h2>hello winner</h2><img src='../../winner.png' />
             </>
-            : questions && questions.map((artistData) => {
+            : questions && questions.map((gameInfo) => {
         return (
-          <QuestionsContainer key={artistData.name}>
-            <Circle src={artistData.images[0].url} />
-            <QuestionCustom onClick={() => gameLoop(artistData.followers.total)}>{artistData.name} </QuestionCustom>
-            {rightAnswer && <ResponseCustom>{artistData.followers.total}</ResponseCustom>}
+          <QuestionsContainer key={gameInfo.id}>
+            <Circle src={gameInfo.url} />
+            <QuestionCustom onClick={() => gameLoop(gameInfo.rate)}>{gameInfo.title} </QuestionCustom>
+            {rightAnswer && <ResponseCustom>{gameInfo.rate}</ResponseCustom>}
           </QuestionsContainer>
           )
         })}
