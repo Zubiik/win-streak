@@ -9,8 +9,9 @@ const GameHandler = ({ setIsTrue, gameData, setGameData,gameTheme }) => {
   const [score, setScore] = useState(0);
   const [rightAnswer, setRightAnswer] = useState(false);
   const [isLoose, setIsLoose] = useState(false);
-  console.log(isLoose);
-  let userScore = localStorage.getItem("userScore");
+
+  let userScore = localStorage.getItem(gameTheme);
+
   const shuffle = () => {
     const arrayCopy = gameData.sort((a, b) => Math.random() - Math.random());
     setGameData(arrayCopy);
@@ -44,7 +45,7 @@ const GameHandler = ({ setIsTrue, gameData, setGameData,gameTheme }) => {
         setIsLoose(true);
         setScore(0);
         if (score > userScore) {
-          localStorage.setItem("userScore", score);
+          localStorage.setItem(gameTheme, score);
         }
         setTurn(0);
         shuffle();
