@@ -9,12 +9,12 @@ const HomePage = ({ setIsTrue, setGameData,setGameTheme }) => {
       <h1>A vous de jouer </h1>
       <h2>Reussissez à faire un sans faute !</h2>
       <GameSelector>
-        <ImgContainer onClick={() => { setIsTrue(true); setGameData(artistsData); setGameTheme('l\'artiste le plus ecouté')}}>
+        <ImgContainer onClick={() => { setIsTrue(true); setGameData(artistsData); setGameTheme('L\'artiste le plus ecouté')}}>
           <GameTitle>
             l'artiste le plus ecouté
           </GameTitle>
         </ImgContainer>
-        <ImgContainer onClick={() => { setIsTrue(true); setGameData(filmsData); setGameTheme('le film le mieux noté')}}>
+        <ImgContainer onClick={() => { setIsTrue(true); setGameData(filmsData); setGameTheme('Le film le mieux noté')}}>
           <GameTitle>
             le film le mieux noté
           </GameTitle>

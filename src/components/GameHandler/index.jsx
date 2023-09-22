@@ -1,12 +1,15 @@
 import { useState, useEffect } from 'react';
 import { QuestionCustom, Container, QuestionsContainer, ResponseCustom, SectionContainer, Circle, Title } from './styled';
 import SvgComponent from '../Arrow';
+import GameLoose from '../../pages/gameLoose';
 
 const GameHandler = ({ setIsTrue, gameData, setGameData,gameTheme }) => {
   const [questions, setQuestions] = useState([]);
   const [turn, setTurn] = useState(0);
   const [score, setScore] = useState(0);
   const [rightAnswer, setRightAnswer] = useState(false);
+  const [isLoose, setIsLoose] = useState(false);
+  console.log(isLoose);
   let userScore = localStorage.getItem("userScore");
   const shuffle = () => {
     const arrayCopy = gameData.sort((a, b) => Math.random() - Math.random());
@@ -37,8 +40,8 @@ const GameHandler = ({ setIsTrue, gameData, setGameData,gameTheme }) => {
         setTurn(turn + 1)
       }
       else {
-        window.alert('perdu');
         //set questions est trigger 2 fois
+        setIsLoose(true);
         setScore(0);
         if (score > userScore) {
           localStorage.setItem("userScore", score);
@@ -51,19 +54,22 @@ const GameHandler = ({ setIsTrue, gameData, setGameData,gameTheme }) => {
   }
    return (
     <Container>
-      <SvgComponent onClick={() => setIsTrue(false)}/>
+      <SvgComponent onClick={() => setIsTrue(false)} />
+       {isLoose ?
+         <GameLoose userScore={userScore} setIsLoose={setIsLoose} /> :
+    <>
       <Title>{gameTheme}</Title>
       <p>score: {score} </p>
       <p>record:{userScore} </p>
       <SectionContainer>
         {
           turn === gameData.length - 1 ?
-            <>
+          <>
               <h2>hello winner</h2><img src='../../winner.png' />
             </>
             : questions && questions.map((gameInfo) => {
-        return (
-          <QuestionsContainer key={gameInfo.id}>
+              return (
+                <QuestionsContainer key={gameInfo.id}>
             <Circle src={gameInfo.url} />
             <QuestionCustom onClick={() => gameLoop(gameInfo.rate)}>{gameInfo.title} </QuestionCustom>
             {rightAnswer && <ResponseCustom>{gameInfo.rate.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</ResponseCustom>}
@@ -71,6 +77,9 @@ const GameHandler = ({ setIsTrue, gameData, setGameData,gameTheme }) => {
           )
         })}
       </SectionContainer> 
+    </>
+
+      }
 
     </Container>
   )
