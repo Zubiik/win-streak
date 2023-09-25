@@ -15,6 +15,9 @@ export const SectionContainer = styled.section`
   display: flex;
   align-items: center;
   justify-content: space-around;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 export const QuestionsContainer = styled.aside`
   all: unset;
@@ -24,45 +27,23 @@ export const QuestionsContainer = styled.aside`
 `;
 
 export const QuestionCustom = styled.button`
-  background-color: #3DD1E7;
-  border: 0 solid #E5E7EB;
-  box-sizing: border-box;
-  display: flex;
-  font-size: 1rem;
-  font-weight: 700;
-  justify-content: center;
-  line-height: 1.75rem;
-  padding: 0.75rem 1.65rem;
-  position: relative;
-  text-align: center;
-  width: 100%;
-  max-width: 460px;
-  position: relative;
+  display: inline-block;
+  outline: 0;
+  border: 0;
+  font-size: 20px;
+  font-weight: 500;
+  color: #fff;
   cursor: pointer;
-  transform: rotate(-2deg);
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  &:focus {
-    outline: 0;
+  background-image: linear-gradient(to right,#e052a0,#f15c41);
+  border-radius: 3px;
+  padding: 16px 18px 15px;
+  white-space: nowrap;
+
+  :hover {
+      background-color: #e6375a;
+      background-image: none!important;
   }
-  &:after {
-    content: '';
-    position: absolute;
-    border: 1px solid #000000;
-    bottom: 4px;
-    left: 4px;
-    width: calc(100% - 1px);
-    height: calc(100% - 1px);
-  }
-  &:hover:after {
-    bottom: 2px;
-    left: 2px;
-  }
-  @media (min-width: 768px) {
-    padding: .75rem 3rem;
-    font-size: 1.25rem;
-  }
+
 `;
 export const ResponseCustom = styled.p`
   all: unset;
@@ -76,8 +57,13 @@ export const Circle = styled.img`
   display: inline-block;
   margin: 2rem;
 `;
+export const Score = styled.p`
+  font-size: 1.5rem;
+  color: #666;
+  margin: 1rem;
 
-
- export const Arrow = styled.div`
+`;export const ScoreContainer = styled.div`
+  display: flex;
+  justify-content: center;
 
 `;

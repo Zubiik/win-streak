@@ -1,6 +1,7 @@
 import { ImgContainer, GameTitle, GameSelector, Container } from "./styled.js";
 import { artistsData } from '../../mocked__data/artistsData.js';
 import { filmsData } from '../../mocked__data/filmsData.js';
+import {cheeseData} from '../../mocked__data/cheeseData.js'
 
 const HomePage = ({ setIsTrue, setGameData,setGameTheme }) => {
  
@@ -19,10 +20,10 @@ const HomePage = ({ setIsTrue, setGameData,setGameTheme }) => {
             le film le mieux noté
           </GameTitle>
         </ImgContainer>
-        <ImgContainer>
-          <GameTitle> 
+        <ImgContainer onClick={() => { setIsTrue(true); setGameData(cheeseData); setGameTheme('Le meilleur fromage')}}>
+          <GameTitle>  
             le meilleur fromage
-          </GameTitle> 
+          </GameTitle>
         </ImgContainer>
       </GameSelector>
     </Container>

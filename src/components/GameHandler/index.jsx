@@ -1,5 +1,15 @@
 import { useState, useEffect } from 'react';
-import { QuestionCustom, Container, QuestionsContainer, ResponseCustom, SectionContainer, Circle, Title } from './styled';
+import {
+  QuestionCustom,
+  Container,
+  QuestionsContainer,
+  Score,
+  ScoreContainer,
+  ResponseCustom,
+  SectionContainer,
+  Circle,
+  Title
+} from './styled';
 import SvgComponent from '../Arrow';
 import GameLoose from '../../pages/gameLoose';
 
@@ -19,7 +29,7 @@ const GameHandler = ({ setIsTrue, gameData, setGameData,gameTheme }) => {
   useEffect(() => {
     shuffle();
   }, [])
-  
+
   useEffect(() => {
     if (gameData.length !== 0) {
       setQuestions([gameData[turn], gameData[turn + 1]]);
@@ -61,9 +71,11 @@ const GameHandler = ({ setIsTrue, gameData, setGameData,gameTheme }) => {
        {isLoose ?
          <GameLoose userScore={userScore} setIsLoose={setIsLoose} /> :
     <>
-      <Title>{gameTheme}</Title>
-      <p>score: {score} </p>
-      <p>record:{userScore} </p>
+           <Title>{gameTheme}</Title>
+           <ScoreContainer>
+            <Score>score: {score} </Score>
+            <Score>record:{userScore} </Score>
+           </ScoreContainer>
       <SectionContainer>
         {
           turn === gameData.length - 1 ?

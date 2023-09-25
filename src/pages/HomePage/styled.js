@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 
 export const Container = styled.div`
   height: 100vh;
+
   /* background-image: url("../../wallpaper.png");
   background-position: center;
   background-repeat: no-repeat;
@@ -11,6 +12,10 @@ export const Container = styled.div`
 export const GameSelector = styled.div`
 display: flex;
 justify-content: space-around;
+@media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 export const ImgContainer = styled.div`
