@@ -6,6 +6,8 @@ const SvgComponent = (props) => (
     width={50}
     height={50}
     fill="none"
+    cursor= "pointer"
+    
     {...props}
   >
     <path

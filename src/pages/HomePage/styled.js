@@ -2,11 +2,20 @@ import styled from "@emotion/styled";
 
 export const Container = styled.div`
   height: 100vh;
+`;
 
-  /* background-image: url("../../wallpaper.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover; */
+export const Heading = styled.h1`
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center; 
+`;
+
+export const SubHeading = styled.h2`
+  font-size: 1.5rem;
+  color: #666;
+  margin-bottom: 20px;
+  text-align: center;
 `;
 
 export const GameSelector = styled.div`
@@ -30,10 +39,12 @@ export const ImgContainer = styled.div`
   background-size: cover;
   background-image: url("../../base.jpg");
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+  &:hover {
+    transform: scale(1.05);
+  }
   `;
-// export const ImgCustom = styled.img`
-//  max-width:100%;
-// `;
 
 export const GameTitle = styled.h3`
   color: white;
