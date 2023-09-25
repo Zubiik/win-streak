@@ -16,10 +16,12 @@ const GameHandler = ({ setIsTrue, gameData, setGameData,gameTheme }) => {
     const arrayCopy = gameData.sort((a, b) => Math.random() - Math.random());
     setGameData(arrayCopy);
   }
-
+  useEffect(() => {
+    shuffle();
+  }, [])
+  
   useEffect(() => {
     if (gameData.length !== 0) {
-      shuffle();
       setQuestions([gameData[turn], gameData[turn + 1]]);
     }
   }, [gameData, turn])
