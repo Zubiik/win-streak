@@ -11,7 +11,7 @@ import { artistsData } from "../../mocked__data/artistsData";
 import { filmsData } from "../../mocked__data/filmsData";
 import { cheeseData } from "../../mocked__data/cheeseData";
 
-const HomePage = ({ setIsTrue, setGameData, setGameTheme }) => {
+const HomePage = ({ setIsStarted, setGameData, setGameTheme }) => {
   return (
     <Container>
       <Heading>Win streak challenge</Heading>
@@ -19,16 +19,16 @@ const HomePage = ({ setIsTrue, setGameData, setGameTheme }) => {
       <GameSelector>
         <ImgContainer
           onClick={() => {
-            setIsTrue(true);
+            setIsStarted(true);
             setGameData(artistsData);
             setGameTheme("L'artiste le plus ecouté");
           }}
         >
-          <GameTitle>l'artiste le plus ecouté</GameTitle>
+          <GameTitle>L'artiste le plus ecouté</GameTitle>
         </ImgContainer>
         <ImgContainer
           onClick={() => {
-            setIsTrue(true);
+            setIsStarted(true);
             setGameData(filmsData);
             setGameTheme("Le film le mieux noté");
           }}
@@ -37,7 +37,7 @@ const HomePage = ({ setIsTrue, setGameData, setGameTheme }) => {
         </ImgContainer>
         <ImgContainer
           onClick={() => {
-            setIsTrue(true);
+            setIsStarted(true);
             setGameData(cheeseData);
             setGameTheme("Le meilleur fromage");
           }}

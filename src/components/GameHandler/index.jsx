@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Container, SectionContainer } from "./styled";
 import SvgComponent from "../Arrow";
-import GameLoose from "../../pages/gameLoose";
+import GameLoose from "../../pages/GameLoose";
 import Question from "../Question";
 import GameHeader from "../GameHeader";
 
-const GameHandler = ({ setIsTrue, gameData, setGameData, gameTheme }) => {
+const GameHandler = ({ setIsStarted, gameData, setGameData, gameTheme }) => {
   // Mettre toute la logique dans un CustomHook. Creer un dossier hooks/ dans le dossier GameHandler/
 
   const [questions, setQuestions] = useState([]);
@@ -71,7 +71,7 @@ const GameHandler = ({ setIsTrue, gameData, setGameData, gameTheme }) => {
   };
   return (
     <Container>
-      <SvgComponent onClick={() => setIsTrue(false)} />
+      <SvgComponent onClick={() => setIsStarted(false)} />
       {isLoose ? (
         <GameLoose userScore={userScore} setIsLoose={setIsLoose} />
       ) : (
@@ -85,7 +85,7 @@ const GameHandler = ({ setIsTrue, gameData, setGameData, gameTheme }) => {
             {turn === gameData.length - 1 ? (
               <>
                 <h2>hello winner</h2>
-                <img src="../../winner.png" />
+                <img src="../../winner.png" alt="winner" />
               </>
             ) : (
               questions &&

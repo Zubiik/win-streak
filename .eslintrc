@@ -10,6 +10,8 @@
     "object-shorthand": "off",
     "class-methods-use-this": "off",
     "react/function-component-definition": "off",
-    "arrow-body-style":"off"
+    "arrow-body-style":"off",
+    // TODO: penser a mettre les props en route plus tard
+    "react/prop-types": "off"
   }
 }

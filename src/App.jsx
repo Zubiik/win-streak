@@ -1,21 +1,31 @@
-import { useState } from 'react';
-import './App.css';
-import GameHandler from './components/GameHandler';
-import HomePage from './pages/HomePage';
+import React, { useState } from "react";
+import "./App.css";
+import GameHandler from "./components/GameHandler";
+import HomePage from "./pages/HomePage";
 
 const App = () => {
   const [gameData, setGameData] = useState([]);
-  // renommer en isStarted OU isGameStarted
-  const [isTrue, setIsTrue] = useState(false);
+  const [isStarted, setIsStarted] = useState(false);
   const [gameTheme, setGameTheme] = useState();
-  
-  return (
-    <>
-      {isTrue ? <GameHandler setIsTrue={setIsTrue} gameData={gameData} setGameData={setGameData} gameTheme={gameTheme} /> :
-        <HomePage setIsTrue={setIsTrue} setGameData={setGameData} setGameTheme={setGameTheme} />
-      }
-    </>
-  )
-}
 
-export default App
+  return (
+    <div>
+      {isStarted ? (
+        <GameHandler
+          setIsStarted={setIsStarted}
+          gameData={gameData}
+          setGameData={setGameData}
+          gameTheme={gameTheme}
+        />
+      ) : (
+        <HomePage
+          setIsStarted={setIsStarted}
+          setGameData={setGameData}
+          setGameTheme={setGameTheme}
+        />
+      )}
+    </div>
+  );
+};
+
+export default App;
