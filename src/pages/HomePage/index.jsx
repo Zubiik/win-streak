@@ -7,9 +7,9 @@ import {
   Heading,
   SubHeading,
 } from "./styled";
-import { artistsData } from "../../mocked__data/artistsData";
-import { filmsData } from "../../mocked__data/filmsData";
-import { cheeseData } from "../../mocked__data/cheeseData";
+import artistsData from "../../mocked__data/artistsData";
+import filmsData from "../../mocked__data/filmsData";
+import cheeseData from "../../mocked__data/cheeseData";
 
 const HomePage = ({ setIsStarted, setGameData, setGameTheme }) => {
   return (
