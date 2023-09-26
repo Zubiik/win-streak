@@ -81,9 +81,8 @@ const GameHandler = ({ setIsTrue, gameData, setGameData, gameTheme }) => {
       <SvgComponent onClick={() => setIsTrue(false)} />
        {isLoose ?
          <GameLoose userScore={userScore} setIsLoose={setIsLoose} /> :
-        //  Creer un composant GameHeader
     <>
-           <GameHeader gameTheme={gameTheme} userScore={userScore} score={score} />
+          <GameHeader gameTheme={gameTheme} userScore={userScore} score={score} />
       <SectionContainer>
         {
           turn === gameData.length - 1 ?
