@@ -13,6 +13,7 @@ import {
 import SvgComponent from '../Arrow';
 import GameLoose from '../../pages/gameLoose';
 import Question from '../Question';
+import GameHeader from '../GameHeader';
 
 const GameHandler = ({ setIsTrue, gameData, setGameData, gameTheme }) => {
   // Mettre toute la logique dans un CustomHook. Creer un dossier hooks/ dans le dossier GameHandler/
@@ -82,11 +83,7 @@ const GameHandler = ({ setIsTrue, gameData, setGameData, gameTheme }) => {
          <GameLoose userScore={userScore} setIsLoose={setIsLoose} /> :
         //  Creer un composant GameHeader
     <>
-           <Title>{gameTheme}</Title>
-           <ScoreContainer>
-            <Score>score: {score} </Score>
-            <Score>record:{userScore} </Score>
-           </ScoreContainer>
+           <GameHeader gameTheme={gameTheme} userScore={userScore} score={score} />
       <SectionContainer>
         {
           turn === gameData.length - 1 ?
