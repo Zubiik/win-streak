@@ -5,6 +5,7 @@ import HomePage from './pages/HomePage';
 
 const App = () => {
   const [gameData, setGameData] = useState([]);
+  // renommer en isStarted OU isGameStarted
   const [isTrue, setIsTrue] = useState(false);
   const [gameTheme, setGameTheme] = useState();
   

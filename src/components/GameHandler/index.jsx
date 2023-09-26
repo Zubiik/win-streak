@@ -1,14 +1,7 @@
 import { useState, useEffect } from 'react';
 import {
-  QuestionCustom,
   Container,
-  QuestionsContainer,
-  Score,
-  ScoreContainer,
-  ResponseCustom,
   SectionContainer,
-  Circle,
-  Title
 } from './styled';
 import SvgComponent from '../Arrow';
 import GameLoose from '../../pages/gameLoose';
@@ -58,7 +51,6 @@ const GameHandler = ({ setIsTrue, gameData, setGameData, gameTheme }) => {
     setTimeout(function () {
       const answer = isRightAnswer(userChoice);
       if (answer) {
-        // TU devrais set le score ici !
         setScore(score + 1);
         setTurn(turn + 1)
       }

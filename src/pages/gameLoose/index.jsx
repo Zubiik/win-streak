@@ -1,5 +1,6 @@
 import { GameLooseContainer, Heading, Score, RetryButton } from './styled.js';
 
+// renommer le dossier GameLoose avec un G majuscule
 const GameLoose = ({ userScore, setIsLoose }) => {
   return (
     <GameLooseContainer>
