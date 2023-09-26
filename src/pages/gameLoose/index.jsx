@@ -1,4 +1,5 @@
-import { GameLooseContainer, Heading, Score, RetryButton } from './styled.js';
+import React from "react";
+import { GameLooseContainer, Heading, Score, RetryButton } from "./styled";
 
 // renommer le dossier GameLoose avec un G majuscule
 const GameLoose = ({ userScore, setIsLoose }) => {

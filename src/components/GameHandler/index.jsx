@@ -1,12 +1,9 @@
-import { useState, useEffect } from 'react';
-import {
-  Container,
-  SectionContainer,
-} from './styled';
-import SvgComponent from '../Arrow';
-import GameLoose from '../../pages/gameLoose';
-import Question from '../Question';
-import GameHeader from '../GameHeader';
+import React, { useState, useEffect } from "react";
+import { Container, SectionContainer } from "./styled";
+import SvgComponent from "../Arrow";
+import GameLoose from "../../pages/gameLoose";
+import Question from "../Question";
+import GameHeader from "../GameHeader";
 
 const GameHandler = ({ setIsTrue, gameData, setGameData, gameTheme }) => {
   // Mettre toute la logique dans un CustomHook. Creer un dossier hooks/ dans le dossier GameHandler/
@@ -17,16 +14,16 @@ const GameHandler = ({ setIsTrue, gameData, setGameData, gameTheme }) => {
   const [rightAnswer, setRightAnswer] = useState(false);
   const [isLoose, setIsLoose] = useState(false);
 
-  let userScore = localStorage.getItem(gameTheme);
+  const userScore = localStorage.getItem(gameTheme);
 
   const shuffle = () => {
-    //  Effectivement ta randomisation n'est pas bonne, normalement tu dois rentrer un chiffre 
+    //  Effectivement ta randomisation n'est pas bonne, normalement tu dois rentrer un chiffre
     const arrayCopy = gameData.sort((a, b) => Math.random() - Math.random());
     setGameData(arrayCopy);
-  }
+  };
   useEffect(() => {
     shuffle();
-  }, [])
+  }, []);
 
   useEffect(() => {
     // Est ce que tu as essayer de tester ton jeu avec un tableau avec 3 entrées max ?
@@ -34,28 +31,32 @@ const GameHandler = ({ setIsTrue, gameData, setGameData, gameTheme }) => {
     if (gameData.length !== 0) {
       setQuestions([gameData[turn], gameData[turn + 1]]);
     }
-  }, [gameData, turn])
+  }, [gameData, turn]);
 
   const isRightAnswer = (userChoice) => {
-    if (((questions[0].rate < questions[1].rate) && (userChoice === questions[1].rate))
-      || ((questions[0].rate > questions[1].rate) && (userChoice === questions[0].rate)) || (questions[0].rate === questions[1].rate)) {      
+    if (
+      (questions[0].rate < questions[1].rate &&
+        userChoice === questions[1].rate) ||
+      (questions[0].rate > questions[1].rate &&
+        userChoice === questions[0].rate) ||
+      questions[0].rate === questions[1].rate
+    ) {
       return true;
     }
     return false;
-  }
+  };
 
   const gameLoop = (userChoice) => {
     // Pk tu set RightAnswer ici a true ?
     setRightAnswer(true);
     // PK un timeout ??
-    setTimeout(function () {
+    setTimeout(() => {
       const answer = isRightAnswer(userChoice);
       if (answer) {
         setScore(score + 1);
-        setTurn(turn + 1)
-      }
-      else {
-        //set questions est trigger 2 fois
+        setTurn(turn + 1);
+      } else {
+        // set questions est trigger 2 fois
         setIsLoose(true);
         setScore(0);
         if (score > userScore) {
@@ -66,34 +67,44 @@ const GameHandler = ({ setIsTrue, gameData, setGameData, gameTheme }) => {
       }
       // // Pk tu set RightAnswer ici a false ici ensuite ? ?
       setRightAnswer(false);
-  }, 1000);
-  }
-   return (
+    }, 1000);
+  };
+  return (
     <Container>
       <SvgComponent onClick={() => setIsTrue(false)} />
-       {isLoose ?
-         <GameLoose userScore={userScore} setIsLoose={setIsLoose} /> :
-    <>
-          <GameHeader gameTheme={gameTheme} userScore={userScore} score={score} />
-      <SectionContainer>
-        {
-          turn === gameData.length - 1 ?
-          <>
-              <h2>hello winner</h2><img src='../../winner.png' />
-            </>
-                 : questions && questions.map((gameInfo, index) => {
-                   return (
-                     <Question gameInfo={gameInfo} rightAnswer={rightAnswer} gameLoop={gameLoop} index={index} />
-          )
-        })}
-      </SectionContainer> 
-    </>
-
-      }
-
+      {isLoose ? (
+        <GameLoose userScore={userScore} setIsLoose={setIsLoose} />
+      ) : (
+        <>
+          <GameHeader
+            gameTheme={gameTheme}
+            userScore={userScore}
+            score={score}
+          />
+          <SectionContainer>
+            {turn === gameData.length - 1 ? (
+              <>
+                <h2>hello winner</h2>
+                <img src="../../winner.png" />
+              </>
+            ) : (
+              questions &&
+              questions.map((gameInfo, index) => {
+                return (
+                  <Question
+                    gameInfo={gameInfo}
+                    rightAnswer={rightAnswer}
+                    gameLoop={gameLoop}
+                    index={index}
+                  />
+                );
+              })
+            )}
+          </SectionContainer>
+        </>
+      )}
     </Container>
-  )
-}
+  );
+};
 
 export default GameHandler;
-
