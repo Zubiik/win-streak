@@ -1,24 +1,5 @@
 import styled from "@emotion/styled";
 
-export const Container = styled.div`
-  all: unset;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-`;
-export const Title = styled.h2`
-  display: flex;
-  align-self: center;
-`;
-export const SectionContainer = styled.section`
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  @media (max-width: 768px) {
-    flex-direction: column;
-  }
-`;
 export const QuestionsContainer = styled.aside`
   all: unset;
   display: flex;
@@ -60,14 +41,4 @@ export const Circle = styled.img`
   display: inline-block;
   margin: 2rem;
   object-fit: cover;
-`;
-export const Score = styled.p`
-  font-size: 1.5rem;
-  color: #666;
-  margin: 1rem;
-
-`;export const ScoreContainer = styled.div`
-  display: flex;
-  justify-content: center;
-
 `;
