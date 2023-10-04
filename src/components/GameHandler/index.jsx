@@ -20,7 +20,6 @@ const GameHandler = ({ setIsStarted, gameData, setGameData, gameTheme }) => {
     gameLoop,
   ] = useGameLogic(gameData, setGameData, gameTheme);
 
-  console.log("hey");
   return (
     <Container>
       <SvgComponent onClick={() => setIsStarted(false)} />

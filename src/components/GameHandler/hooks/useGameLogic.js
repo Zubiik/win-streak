@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import postNewScore from "../../../api_requests/postNewScore";
 
 const useGameLogic = (gameData, setGameData, gameTheme) => {
   const [questions, setQuestions] = useState([]);
@@ -16,7 +15,6 @@ const useGameLogic = (gameData, setGameData, gameTheme) => {
   };
   useEffect(() => {
     shuffle();
-    postNewScore();
   }, []);
 
   useEffect(() => {

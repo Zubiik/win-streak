@@ -1,7 +1,7 @@
-const postNewScore = () => {
+const postNewScore = (user, score) => {
   fetch(`http://localhost:3001/api/post`, {
     method: "POST",
-    body: JSON.stringify({ user: "ceci est un test", score: 10 }),
+    body: JSON.stringify({ user: user, score: score }),
     headers: {
       "Content-type": "application/json; charset=UTF-8",
     },
