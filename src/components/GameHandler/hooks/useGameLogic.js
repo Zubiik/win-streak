@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import postNewScore from "../../../api_requests/postNewScore";
 
 const useGameLogic = (gameData, setGameData, gameTheme) => {
   const [questions, setQuestions] = useState([]);
@@ -10,12 +11,12 @@ const useGameLogic = (gameData, setGameData, gameTheme) => {
   const userScore = localStorage.getItem(gameTheme);
 
   const shuffle = () => {
-    //  Effectivement ta randomisation n'est pas bonne, normalement tu dois rentrer un chiffre
-    const arrayCopy = gameData.sort((a, b) => Math.random() - Math.random());
+    const arrayCopy = gameData.sort(() => 0.5 - Math.random());
     setGameData(arrayCopy);
   };
   useEffect(() => {
     shuffle();
+    postNewScore();
   }, []);
 
   useEffect(() => {
