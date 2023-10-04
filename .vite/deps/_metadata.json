@@ -1,27 +1,36 @@
 {
   "hash": "913fdfc8",
-  "browserHash": "9de2c2c3",
+  "browserHash": "6a53b76f",
   "optimized": {
     "react": {
       "src": "../../node_modules/react/index.js",
       "file": "react.js",
-      "fileHash": "882ced01",
+      "fileHash": "961da7b1",
       "needsInterop": true
     },
     "react-dom/client": {
       "src": "../../node_modules/react-dom/client.js",
       "file": "react-dom_client.js",
-      "fileHash": "45789d39",
+      "fileHash": "e67da62d",
       "needsInterop": true
     },
     "@emotion/styled": {
       "src": "../../node_modules/@emotion/styled/dist/emotion-styled.browser.esm.js",
       "file": "@emotion_styled.js",
-      "fileHash": "8b671a3e",
+      "fileHash": "f2cd289e",
+      "needsInterop": false
+    },
+    "styled-components": {
+      "src": "../../node_modules/styled-components/dist/styled-components.browser.esm.js",
+      "file": "styled-components.js",
+      "fileHash": "e622b132",
       "needsInterop": false
     }
   },
   "chunks": {
+    "chunk-W4TI35DA": {
+      "file": "chunk-W4TI35DA.js"
+    },
     "chunk-L7APZED3": {
       "file": "chunk-L7APZED3.js"
     }

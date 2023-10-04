@@ -34,21 +34,21 @@ const GameHandler = ({ setIsStarted, gameData, setGameData, gameTheme }) => {
           />
           <SectionContainer>
             {
-              /* {turn === gameData.length - 1 ? ( */
-              <GameWin />
+              // {turn === gameData.length - 1 ? (
+              // <GameWin />
               // ) : (
-              //   questions &&
-              //   questions.map((gameInfo, index) => {
-              //     return (
-              //       <Question
-              //         gameInfo={gameInfo}
-              //         rightAnswer={rightAnswer}
-              //         gameLoop={gameLoop}
-              //         index={index}
-              //         key={gameInfo.id}
-              //       />
-              //     );
-              //   })
+              questions &&
+                questions.map((gameInfo, index) => {
+                  return (
+                    <Question
+                      gameInfo={gameInfo}
+                      rightAnswer={rightAnswer}
+                      gameLoop={gameLoop}
+                      index={index}
+                      key={gameInfo.id}
+                    />
+                  );
+                })
               // )}
             }
           </SectionContainer>
