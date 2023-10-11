@@ -1,8 +1,28 @@
-# React + Vite
+# Win Streak
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Win Streak est un jeu interactif où les joueurs doivent deviner qui est le mieux noté. Le but du jeu est de créer la plus longue série de victoires consécutives.
 
-Currently, two official plugins are available:
+## Aperçu du projet
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Ce projet est divisé en deux parties principales :
+- Un front-end développé en utilisant React et Vite.
+- Un back-end développé en utilisant Node.js, stocké dans un repo séparé.
+
+## Fonctionnalités
+
+- Les joueurs peuvent choisir parmi une variété de catégories, telles que les chansons les plus populaires sur Spotify ou les films les mieux notés.
+- Ils reçoivent des choix aléatoires dans la catégorie sélectionnée et doivent deviner lequel est le gagnant.
+- Le jeu suit les victoires consécutives de chaque joueur pour créer une série de victoires.
+
+## Installation
+
+Pour utiliser ce jeu, vous devez cloner les deux référentiels : le front-end et le back-end.
+
+
+Clonez le référentiel du front-end :
+
+git clone https://github.com/VOTRE_COMPTE_GITHUB/NOM_DU_REPOSITORY_FRONT.git](https://github.com/Zubiik/win-streak.git
+
+Clonez le référentiel du back-end :
+
+https://github.com/Zubiik/winStreak-back.git
