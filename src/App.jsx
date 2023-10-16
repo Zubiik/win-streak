@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import "./App.css";
 import GameHandler from "./components/GameHandler";
 import HomePage from "./pages/HomePage";
-import UsersScoreList from "./components/UsersScoreList";
-import GameScoreForm from "./components/GameScoreForm";
+import Footer from "./components/Footer";
+import Navbar from "./components/Header";
 
 const App = () => {
   const [gameData, setGameData] = useState([]);
@@ -12,7 +12,8 @@ const App = () => {
 
   return (
     <div>
-      {/* {isStarted ? (
+      <Navbar />
+      {isStarted ? (
         <GameHandler
           setIsStarted={setIsStarted}
           gameData={gameData}
@@ -25,9 +26,8 @@ const App = () => {
           setGameData={setGameData}
           setGameTheme={setGameTheme}
         />
-      )} */}
-      <UsersScoreList />
-      <GameScoreForm />
+      )}
+      <Footer />
     </div>
   );
 };

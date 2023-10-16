@@ -5,7 +5,7 @@ export const GameLooseContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  min-height: 100vh;
   background-color: #f0f0f0;
 `;
 

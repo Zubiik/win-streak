@@ -2,13 +2,13 @@ import styled from "@emotion/styled";
 
 export const Container = styled.div`
   all: unset;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
 `;
 
 export const SectionContainer = styled.section`
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -16,4 +16,3 @@ export const SectionContainer = styled.section`
     flex-direction: column;
   }
 `;
-

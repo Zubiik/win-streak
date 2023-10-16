@@ -1,4 +1,5 @@
 import React from "react";
+import GameMiniature from "../../components/GameMiniature";
 import {
   ImgContainer,
   GameTitle,
@@ -10,14 +11,27 @@ import {
 import artistsData from "../../mocked__data/artistsData";
 import filmsData from "../../mocked__data/filmsData";
 import cheeseData from "../../mocked__data/cheeseData";
+import miniaturesData from "../../mocked__data/miniaturesData";
 
 const HomePage = ({ setIsStarted, setGameData, setGameTheme }) => {
+  console.log(miniaturesData);
   return (
     <Container>
-      <Heading>Win streak challenge</Heading>
       <SubHeading>Arriverez-vous à faire un sans faute ?</SubHeading>
       <GameSelector>
-        <ImgContainer
+        {miniaturesData.map((currentGame) => {
+          return (
+            <div>
+              <GameMiniature
+                currentGame={currentGame}
+                setIsStarted={setIsStarted}
+                setGameData={setGameData}
+                setGameTheme={setGameTheme}
+              />
+            </div>
+          );
+        })}
+        {/* <ImgContainer
           onClick={() => {
             setIsStarted(true);
             setGameData(artistsData);
@@ -43,7 +57,7 @@ const HomePage = ({ setIsStarted, setGameData, setGameTheme }) => {
           }}
         >
           <GameTitle>le meilleur fromage</GameTitle>
-        </ImgContainer>
+        </ImgContainer> */}
       </GameSelector>
     </Container>
   );
