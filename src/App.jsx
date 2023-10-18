@@ -27,7 +27,6 @@ const App = () => {
           setGameTheme={setGameTheme}
         />
       )}
-      <Footer />
     </div>
   );
 };

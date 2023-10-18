@@ -1,5 +1,5 @@
 import React from "react";
-import { GameImg, GameTitleText,MiniatureContainer } from "./styled";
+import { GameImg, GameTitleText, MiniatureContainer } from "./styled";
 
 const GameMiniature = ({
   setIsStarted,
@@ -12,7 +12,6 @@ const GameMiniature = ({
     setGameData(currentGame.datas);
     setGameTheme(currentGame.title);
   };
-  console.log(`../${currentGame.url}`);
   return (
     <MiniatureContainer onClick={() => GameToRun()}>
       <GameImg src={currentGame.url} />
