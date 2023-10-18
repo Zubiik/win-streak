@@ -6,14 +6,24 @@ import {
   QuestionCustom,
 } from "./styled";
 
-const Question = ({ gameInfo, gameLoop, rightAnswer, index }) => {
+const Question = ({ gameInfo, rightAnswer, index, isMore, isLess }) => {
   return (
     <QuestionsContainer>
       <Circle src={gameInfo.url} />
-      {/* Renommer QuestionCustom */}
-      <QuestionCustom onClick={() => gameLoop(gameInfo.rate)}>
-        {gameInfo.title}{" "}
-      </QuestionCustom>
+
+      <div>{gameInfo.title}</div>
+      {index === 1 ? (
+        <div>
+          {/* Renommer QuestionCustom */}
+          <QuestionCustom onClick={() => isMore(gameInfo.rate)}>
+            More
+          </QuestionCustom>
+          <QuestionCustom onClick={() => isLess(gameInfo.rate)}>
+            Less
+          </QuestionCustom>
+        </div>
+      ) : null}
+
       {rightAnswer && index === 1 && (
         <ResponseCustom>
           {gameInfo.rate.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}

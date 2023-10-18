@@ -25,26 +25,24 @@ const useGameLogic = (gameData, setGameData, gameTheme) => {
     }
   }, [gameData, turn]);
 
-  const isRightAnswer = (userChoice) => {
-    if (
-      (questions[0].rate < questions[1].rate &&
-        userChoice === questions[1].rate) ||
-      (questions[0].rate > questions[1].rate &&
-        userChoice === questions[0].rate) ||
-      questions[0].rate === questions[1].rate
-    ) {
-      return true;
-    }
-    return false;
-  };
-
-  const gameLoop = (userChoice) => {
+  // const isRightAnswer = (userChoice) => {
+  //   if (
+  //     (questions[0].rate < questions[1].rate &&
+  //       userChoice === questions[1].rate) ||
+  //     (questions[0].rate > questions[1].rate &&
+  //       userChoice === questions[0].rate) ||
+  //     questions[0].rate === questions[1].rate
+  //   ) {
+  //     return true;
+  //   }
+  //   return false;
+  // };
+  const gameLoop = (currentAnswer) => {
     // Pk tu set RightAnswer ici a true ?
     setRightAnswer(true);
-    // PK un timeout ??
     setTimeout(() => {
-      const answer = isRightAnswer(userChoice);
-      if (answer) {
+      // const answer = isRightAnswer(userChoice);
+      if (currentAnswer) {
         setScore(score + 1);
         setTurn(turn + 1);
       } else {
@@ -61,6 +59,21 @@ const useGameLogic = (gameData, setGameData, gameTheme) => {
       setRightAnswer(false);
     }, 1000);
   };
+  const isMore = (userChoice) => {
+    if (questions[0].rate < userChoice) {
+      gameLoop(true);
+    } else {
+      gameLoop(false);
+    }
+  };
+  const isLess = (userChoice) => {
+    if (questions[0].rate > userChoice) {
+      gameLoop(true);
+    } else {
+      gameLoop(false);
+    }
+  };
+
   return [
     questions,
     turn,
@@ -70,6 +83,8 @@ const useGameLogic = (gameData, setGameData, gameTheme) => {
     isLoose,
     setIsLoose,
     gameLoop,
+    isMore,
+    isLess,
   ];
 };
 

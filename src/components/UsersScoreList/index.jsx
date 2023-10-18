@@ -7,7 +7,6 @@ const UsersScoreList = () => {
 
   useEffect(() => {
     getAll(setusersInfos);
-    console.log(usersInfos);
   }, []);
 
   return (

@@ -8,7 +8,6 @@ export const Container = styled.div`
 `;
 
 export const SectionContainer = styled.section`
-  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: space-around;
