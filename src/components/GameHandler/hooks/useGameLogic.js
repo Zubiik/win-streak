@@ -25,18 +25,6 @@ const useGameLogic = (gameData, setGameData, gameTheme) => {
     }
   }, [gameData, turn]);
 
-  // const isRightAnswer = (userChoice) => {
-  //   if (
-  //     (questions[0].rate < questions[1].rate &&
-  //       userChoice === questions[1].rate) ||
-  //     (questions[0].rate > questions[1].rate &&
-  //       userChoice === questions[0].rate) ||
-  //     questions[0].rate === questions[1].rate
-  //   ) {
-  //     return true;
-  //   }
-  //   return false;
-  // };
   const gameLoop = (currentAnswer) => {
     // Pk tu set RightAnswer ici a true ?
     setRightAnswer(true);
@@ -60,14 +48,14 @@ const useGameLogic = (gameData, setGameData, gameTheme) => {
     }, 1000);
   };
   const isMore = (userChoice) => {
-    if (questions[0].rate < userChoice) {
+    if (questions[0].rate < userChoice || questions[0].rate === userChoice) {
       gameLoop(true);
     } else {
       gameLoop(false);
     }
   };
   const isLess = (userChoice) => {
-    if (questions[0].rate > userChoice) {
+    if (questions[0].rate > userChoice || questions[0].rate === userChoice) {
       gameLoop(true);
     } else {
       gameLoop(false);

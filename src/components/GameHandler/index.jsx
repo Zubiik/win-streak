@@ -39,7 +39,7 @@ const GameHandler = ({ setIsStarted, gameData, setGameData, gameTheme }) => {
             score={score}
           />
           <SectionContainer>
-            <VsBar />
+            {/* <VsBar /> */}
             {turn === gameData.length - 1 ? (
               <GameWin />
             ) : (

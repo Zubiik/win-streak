@@ -7,25 +7,32 @@ export const QuestionsContainer = styled.aside`
   align-items: center;
 `;
 
-export const QuestionCustom = styled.button`
+export const Button = styled.button`
   display: inline-block;
   outline: 0;
   border: 0;
   font-size: 20px;
-  font-weight: 500;
+  font-weight: 800;
   color: #fff;
   cursor: pointer;
-  background-image: linear-gradient(to right, #e052a0, #f15c41);
   border-radius: 3px;
   padding: 16px 18px 15px;
+  margin: 1rem;
   white-space: nowrap;
-
+`;
+export const LessButton = styled(Button)`
+  background-color: #3323a5;
   :hover {
-    background-color: #e6375a;
-    background-image: none;
+    background-color: #1b0f6a;
   }
 `;
-export const ResponseCustom = styled.p`
+export const MoreButton = styled(Button)`
+  background-color: #db162f;
+  :hover {
+    background-color: #871624;
+  }
+`;
+export const Title = styled.p`
   all: unset;
   font-size: 1.8rem;
   line-height: 2.25rem;

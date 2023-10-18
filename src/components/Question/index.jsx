@@ -2,8 +2,9 @@ import React from "react";
 import {
   Circle,
   QuestionsContainer,
-  ResponseCustom,
-  QuestionCustom,
+  Title,
+  LessButton,
+  MoreButton,
 } from "./styled";
 
 const Question = ({ gameInfo, rightAnswer, index, isMore, isLess }) => {
@@ -11,28 +12,24 @@ const Question = ({ gameInfo, rightAnswer, index, isMore, isLess }) => {
     <QuestionsContainer>
       <Circle src={gameInfo.url} />
 
-      <div>{gameInfo.title}</div>
+      <Title>{gameInfo.title}</Title>
       {index === 1 ? (
         <div>
           {/* Renommer QuestionCustom */}
-          <QuestionCustom onClick={() => isMore(gameInfo.rate)}>
-            More
-          </QuestionCustom>
-          <QuestionCustom onClick={() => isLess(gameInfo.rate)}>
-            Less
-          </QuestionCustom>
+          <MoreButton onClick={() => isMore(gameInfo.rate)}> ↑ More</MoreButton>
+          <LessButton onClick={() => isLess(gameInfo.rate)}> ↓ Less</LessButton>
         </div>
       ) : null}
 
       {rightAnswer && index === 1 && (
-        <ResponseCustom>
+        <Title>
           {gameInfo.rate.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
-        </ResponseCustom>
+        </Title>
       )}
-      <ResponseCustom>
+      <Title>
         {index === 0 &&
           gameInfo.rate.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{" "}
-      </ResponseCustom>
+      </Title>
     </QuestionsContainer>
   );
 };

@@ -11,6 +11,8 @@ export const MiniatureContainer = styled.div`
     transform: scale(1.05);
   }
   margin: 1rem;
+  background-color: white;
+  color: #000e1e;
 `;
 export const GameImg = styled.img`
   display: flex;
@@ -19,10 +21,10 @@ export const GameImg = styled.img`
   width: 100%;
   min-height: 25rem;
   object-fit: cover;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   cursor: pointer;
   transition: transform 0.2s ease-in-out;
 `;
 export const GameTitleText = styled.h3`
   padding-left: 1rem;
+  font-weight: 300;
 `;
