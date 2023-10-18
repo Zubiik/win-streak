@@ -1,7 +1,6 @@
 import styled from "@emotion/styled";
 
 export const Header = styled.header`
-  background-color: #333;
   color: #fff;
   padding: 10px 20px;
   display: flex;

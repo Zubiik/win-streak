@@ -9,9 +9,8 @@ export const Score = styled.p`
   font-size: 1.5rem;
   color: #666;
   margin: 1rem;
-
-`;export const ScoreContainer = styled.div`
+`;
+export const ScoreContainer = styled.div`
   display: flex;
   justify-content: center;
-
 `;

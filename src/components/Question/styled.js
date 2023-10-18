@@ -5,6 +5,10 @@ export const QuestionsContainer = styled.aside`
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-height: 550px;
+  @media (max-width: 768px) {
+    min-height: 400px;
+  }
 `;
 
 export const Button = styled.button`
@@ -37,6 +41,9 @@ export const Title = styled.p`
   font-size: 1.8rem;
   line-height: 2.25rem;
   margin-top: 1rem;
+  @media (max-width: 768px) {
+    font-size: 1.4rem;
+  }
 `;
 export const Circle = styled.img`
   height: 15rem;
