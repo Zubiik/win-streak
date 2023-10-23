@@ -4,7 +4,7 @@ import { Form, Input, Button } from "./styled";
 
 const GameScoreForm = ({ gameTheme }) => {
   const [userValue, setUserValue] = useState("");
-  const userScore = localStorage.getItem(gameTheme);
+  const userScore = JSON.parse(localStorage.getItem(gameTheme));
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -31,7 +31,7 @@ const GameScoreForm = ({ gameTheme }) => {
           setScoreValue(event.target.value);
         }}
       /> */}
-      <div> votre score : {userScore}</div>
+      <div> votre score : {userScore[0]}</div>
       <Button type="submit" onClick={(e) => onSubmit(e)}>
         Envoyer
       </Button>

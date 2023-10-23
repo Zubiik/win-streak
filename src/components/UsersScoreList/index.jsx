@@ -12,10 +12,12 @@ const UsersScoreList = () => {
   return (
     <Container>
       {usersInfos.map((userInfo) => {
+        console.log(userInfo);
         return (
           <UserInfo key={userInfo.id}>
             <UserName>{userInfo.user}</UserName>
-            <UserScore>{userInfo.score}</UserScore>
+            <UserScore>{userInfo.score[1]}</UserScore>
+            <UserScore>{userInfo.score[0]}</UserScore>
           </UserInfo>
         );
       })}

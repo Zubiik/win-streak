@@ -7,7 +7,7 @@ const useGameLogic = (gameData, setGameData, gameTheme) => {
   const [rightAnswer, setRightAnswer] = useState(false);
   const [isLoose, setIsLoose] = useState(false);
 
-  const userScore = localStorage.getItem(gameTheme);
+  const userScore = JSON.parse(localStorage.getItem(gameTheme));
 
   const shuffle = () => {
     const arrayCopy = gameData.sort(() => 0.5 - Math.random());
@@ -29,7 +29,6 @@ const useGameLogic = (gameData, setGameData, gameTheme) => {
     // Pk tu set RightAnswer ici a true ?
     setRightAnswer(true);
     setTimeout(() => {
-      // const answer = isRightAnswer(userChoice);
       if (currentAnswer) {
         setScore(score + 1);
         setTurn(turn + 1);
@@ -37,13 +36,14 @@ const useGameLogic = (gameData, setGameData, gameTheme) => {
         // set questions est trigger 2 fois
         setIsLoose(true);
         setScore(0);
-        if (score > userScore) {
-          localStorage.setItem(gameTheme, score);
+        if (score > userScore || userScore === null) {
+          const currentArray = [score, gameTheme];
+          localStorage.setItem(gameTheme, JSON.stringify(currentArray));
         }
         setTurn(0);
         shuffle();
       }
-      // // Pk tu set RightAnswer ici a false ici ensuite ? ?
+      // // Pk tu set RightAnswer ici a false ici ensuite ??
       setRightAnswer(false);
     }, 1000);
   };
