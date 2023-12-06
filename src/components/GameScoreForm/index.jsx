@@ -2,7 +2,7 @@ import { React, useState } from "react";
 import postNewScore from "../../api_requests/postNewScore";
 import { Form, Input, Button } from "./styled";
 
-const GameScoreForm = ({ gameTheme }) => {
+const GameScoreForm = ({ gameTheme, score }) => {
   const [userValue, setUserValue] = useState("");
   const userScore = JSON.parse(localStorage.getItem(gameTheme));
 
@@ -31,7 +31,7 @@ const GameScoreForm = ({ gameTheme }) => {
           setScoreValue(event.target.value);
         }}
       /> */}
-      <div> votre score : {userScore[0]}</div>
+      <div> votre score : {score}</div>
       <Button type="submit" onClick={(e) => onSubmit(e)}>
         Envoyer
       </Button>

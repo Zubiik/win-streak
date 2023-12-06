@@ -12,7 +12,6 @@ const UsersScoreList = () => {
   return (
     <Container>
       {usersInfos.map((userInfo) => {
-        console.log(userInfo);
         return (
           <UserInfo key={userInfo.id}>
             <UserName>{userInfo.user}</UserName>

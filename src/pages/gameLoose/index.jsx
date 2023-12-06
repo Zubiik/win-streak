@@ -3,15 +3,23 @@ import { GameLooseContainer, Heading, Score, RetryButton } from "./styled";
 import GameScoreForm from "../../components/GameScoreForm";
 import UsersScoreList from "../../components/UsersScoreList";
 
-const GameLoose = ({ userScore, setIsLoose, gameTheme }) => {
+const GameLoose = ({ userScore, setIsLoose, gameTheme, score, setScore }) => {
   console.log("userScore", userScore);
+  console.log("userScore", score);
   return (
     <GameLooseContainer>
       <Heading>Perdu !</Heading>
-      <Score>Score : {userScore[0]}</Score>
       <Score>Partie : {userScore[1]}</Score>
-      <GameScoreForm gameTheme={gameTheme} />
-      <RetryButton onClick={() => setIsLoose(false)}>Réessayer</RetryButton>
+      <Score>Score : {score}</Score>
+      {/* <GameScoreForm gameTheme={gameTheme} score={score} /> */}
+      <RetryButton
+        onClick={() => {
+          setIsLoose(false);
+          setScore(0);
+        }}
+      >
+        Réessayer
+      </RetryButton>
       <UsersScoreList />
     </GameLooseContainer>
   );

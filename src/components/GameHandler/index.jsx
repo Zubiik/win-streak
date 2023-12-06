@@ -21,6 +21,7 @@ const GameHandler = ({ setIsStarted, gameData, setGameData, gameTheme }) => {
     gameLoop,
     isMore,
     isLess,
+    setScore,
   ] = useGameLogic(gameData, setGameData, gameTheme);
   return (
     <Container>
@@ -30,6 +31,8 @@ const GameHandler = ({ setIsStarted, gameData, setGameData, gameTheme }) => {
           userScore={userScore}
           setIsLoose={setIsLoose}
           gameTheme={gameTheme}
+          score={score}
+          setScore={setScore}
         />
       ) : (
         <>

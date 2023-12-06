@@ -7,7 +7,7 @@ const GameHeader = ({ gameTheme, score, userScore }) => {
       <Title>{gameTheme}</Title>
       <ScoreContainer>
         <Score>score: {score} </Score>
-        <Score>record: {userScore[0]}</Score>
+        <Score>record: {userScore && userScore[0]}</Score>
       </ScoreContainer>
     </>
   );

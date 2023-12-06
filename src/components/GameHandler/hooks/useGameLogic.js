@@ -17,6 +17,12 @@ const useGameLogic = (gameData, setGameData, gameTheme) => {
     shuffle();
   }, []);
 
+  const newHightScore = () => {
+    if (userScore === null || score > userScore[0]) {
+      const currentArray = [score, gameTheme];
+      localStorage.setItem(gameTheme, JSON.stringify(currentArray));
+    }
+  };
   useEffect(() => {
     // Est ce que tu as essayer de tester ton jeu avec un tableau avec 3 entrées max ?
     // Je pense que tu ne vérifie pas le cas ou tu es a la fin du tableau
@@ -35,15 +41,13 @@ const useGameLogic = (gameData, setGameData, gameTheme) => {
       } else {
         // set questions est trigger 2 fois
         setIsLoose(true);
-        setScore(0);
-        if (score > userScore || userScore === null) {
-          const currentArray = [score, gameTheme];
-          localStorage.setItem(gameTheme, JSON.stringify(currentArray));
-        }
+        console.log("score --> ", score);
+        console.log("user score --> ", userScore);
+        newHightScore();
         setTurn(0);
         shuffle();
       }
-      // // Pk tu set RightAnswer ici a false ici ensuite ??
+      // Pk tu set RightAnswer ici a false ici ensuite ??
       setRightAnswer(false);
     }, 1000);
   };
@@ -73,6 +77,7 @@ const useGameLogic = (gameData, setGameData, gameTheme) => {
     gameLoop,
     isMore,
     isLess,
+    setScore,
   ];
 };
 
