@@ -6,8 +6,8 @@ import Question from "../Question";
 import GameHeader from "../GameHeader";
 import useGameLogic from "./hooks/useGameLogic";
 import GameWin from "../GameWin";
-import postNewScore from "../../api_requests/postNewScore";
-import VsBar from "../VsBar";
+// import postNewScore from "../../api_requests/postNewScore";
+// import VsBar from "../VsBar";
 
 const GameHandler = ({ setIsStarted, gameData, setGameData, gameTheme }) => {
   const [

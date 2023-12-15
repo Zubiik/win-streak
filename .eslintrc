@@ -12,6 +12,11 @@
     "react/function-component-definition": "off",
     "arrow-body-style":"off",
     // TODO: penser a mettre les props en route plus tard
-    "react/prop-types": "off"
+    "react/prop-types": "off",
+    "node/no-missing-import": ["error", {
+      "allowModules": [],
+      "resolvePaths": ["/path/to/a/modules/directory"],
+      "tryExtensions": [".js", ".json", ".node", ".jsx"]
+    }]
   }
 }
