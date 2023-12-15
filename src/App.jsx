@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
-import GameHandler from "./components/GameHandler";
+// eslint-disable-next-line import/extensions
+import GameHandler from "./components/GameHandler/index.jsx";
 import HomePage from "./pages/HomePage";
 import Footer from "./components/Footer";
 import Navbar from "./components/Header";
