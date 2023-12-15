@@ -1,6 +1,6 @@
 import filmsData from "./filmsData";
 import artistsData from "./artistsData";
-import cheeseData from "./cheeseData";
+import gamesData from "./gamesData";
 
 const miniaturesData = [
   {
@@ -14,9 +14,9 @@ const miniaturesData = [
     url: "../../spotifi.jpeg",
   },
   {
-    datas: cheeseData,
-    title: "Le best fromage",
-    url: "../../fromton.jpeg",
+    datas: gamesData,
+    title: "jeux le mieux noté",
+    url: "../../witcher.jpeg",
   },
 ];
 export default miniaturesData;

@@ -5,7 +5,7 @@ const Navbar = () => {
   return (
     <Header>
       <GameTitle>Win streak</GameTitle>
-      <ProfileLink href="/profil">Mon Profil</ProfileLink>
+      {/* <ProfileLink href="/profil">Mon Profil</ProfileLink> */}
     </Header>
   );
 };

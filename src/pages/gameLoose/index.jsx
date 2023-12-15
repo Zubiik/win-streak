@@ -4,8 +4,6 @@ import GameScoreForm from "../../components/GameScoreForm";
 import UsersScoreList from "../../components/UsersScoreList";
 
 const GameLoose = ({ userScore, setIsLoose, gameTheme, score, setScore }) => {
-  console.log("userScore", userScore);
-  console.log("userScore", score);
   return (
     <GameLooseContainer>
       <Heading>Perdu !</Heading>

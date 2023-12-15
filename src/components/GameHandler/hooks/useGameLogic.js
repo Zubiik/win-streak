@@ -41,8 +41,6 @@ const useGameLogic = (gameData, setGameData, gameTheme) => {
       } else {
         // set questions est trigger 2 fois
         setIsLoose(true);
-        console.log("score --> ", score);
-        console.log("user score --> ", userScore);
         newHightScore();
         setTurn(0);
         shuffle();
