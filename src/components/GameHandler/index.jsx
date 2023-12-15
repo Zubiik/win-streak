@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Container, SectionContainer } from "./styled";
 import SvgComponent from "../Arrow";
-import GameLoose from "../../pages/GameLoose";
+// eslint-disable-next-line import/extensions
+import GameLoose from "../../pages/GameLoose/index.jsx";
 import Question from "../Question";
 import GameHeader from "../GameHeader";
 import useGameLogic from "./hooks/useGameLogic";
